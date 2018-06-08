@@ -1,0 +1,20 @@
+{
+  "name": "manga-reader",
+  "description": "",
+  "main": "main.js",
+  "authors": [
+    "Olivia Sabo-Rush <w.phrush@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/livrush/manga-reader",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.1.1"
+  }
+}
