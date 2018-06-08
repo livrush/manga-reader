@@ -27,9 +27,13 @@ li {
   flex-direction: wrap;
 } */
 
+.library {
+  width: 80vw;
+}
+
 .manga {
-  width: 150px;
-  height: 200px;
+  width: 100px;
+  height: 140px;
   background-size: cover;
   background-position: center;
 }

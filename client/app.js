@@ -1,0 +1,1 @@
+const mangaReader = angular.module('manga-reader', [], function() {});

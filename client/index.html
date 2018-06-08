@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js"></script>
+</head>
+
+<body ng-app="manga-reader">
+  <h1>Hello World!</h1>
+  <div class="flex flex-row">
+    <label for="">Search</label>
+    <input type="text" class="form-control">
+  </div>
+  <input class="btn btn-default" type='file' onchange="onInput(this)" />
+
+  <library></library>
+  <!-- <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script> -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="app.js"></script>
+  <script src="./components/library/library.component.js"></script>
+  <script src="./components/manga/manga.component.js"></script>
+  <script src="./factories/manga.factory.js"></script>
+</body>
+
+</html>
