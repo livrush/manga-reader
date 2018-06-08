@@ -1,3 +1,35 @@
 body {
   background: #ffafaf;
 }
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.flex {
+  display: flex;
+}
+
+/* .flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-direction: wrap;
+} */
+
+.manga {
+  width: 150px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
