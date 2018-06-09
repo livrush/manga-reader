@@ -3,6 +3,7 @@ const os = require('os');
 const path = require('path');
 const lodash = require('lodash');
 const JSZip = require('jszip');
+const zip = new JSZip();
 
 const mangaReader = angular.module('manga-reader', ['ui.router']);
 

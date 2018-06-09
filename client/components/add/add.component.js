@@ -8,9 +8,7 @@ mangaReader.component('add', {
     add.files = [];
 
     add.selectFile = function(file) {
-      // console.warn(file);
       const filePath = path.join(add.path, file);
-      var zip = new JSZip();
       fs.readFile(filePath, function(err, data) {
         if (err) throw err;
         zip.loadAsync(data).then(function ({ files }) {
