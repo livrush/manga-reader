@@ -1,5 +1,7 @@
 <div id="selected" class="selected">
   <img src="{{ selected.manga.cover }}" alt="" class="selected-manga">
-  <h2>{{ selected.manga.name }}</h2>
-  <h4>{{ selected.manga.pages }}</h4>
+  <div class="selected-text">
+    <h2 class="selected-title">{{ selected.manga.name }}</h2>
+    <p>Pages: {{ selected.manga.pages }}</p>
+  </div>
 </div>
