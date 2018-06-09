@@ -6,7 +6,6 @@ const { app, BrowserWindow } = require('electron')
 
   function createWindow () {
     // Create the browser window.
-    debugger;
     win = new BrowserWindow({
       height: 600,
       minHeight: 600,
@@ -16,6 +15,7 @@ const { app, BrowserWindow } = require('electron')
       // titleBarStyle: 'hidden',
     });
 
+    console.log(app.getPath('appData'));
     // and load the index.html of the app.
     win.loadFile('client/index.html')
 
