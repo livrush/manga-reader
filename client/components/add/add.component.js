@@ -8,7 +8,22 @@ mangaReader.component('add', {
     add.files = [];
 
     add.selectFile = function(file) {
-      console.warn(file);
+      // console.warn(file);
+      const filePath = path.join(add.path, file);
+      var zip = new JSZip();
+      fs.readFile(filePath, function(err, data) {
+        if (err) throw err;
+        zip.loadAsync(data).then(function ({ files }) {
+          const onlyFiles = lodash.filter(files, file => !file.dir);
+          const file = onlyFiles[10];
+          file.async('blob').then(function(res) {
+            var urlCreator = window.URL || window.webkitURL;
+            var imageUrl = urlCreator.createObjectURL( res );
+            var img = document.querySelector( "#photo" );
+            img.src = imageUrl;
+          });
+        });
+      });
     };
 
     add.popFolder = function() {
@@ -17,6 +32,7 @@ mangaReader.component('add', {
     };
 
     add.appendFolder = function(file) {
+      console.warn(file);
       add.path = path.join(add.path, file);
       add.searchFolder();
     };
