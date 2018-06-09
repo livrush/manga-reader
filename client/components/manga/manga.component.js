@@ -2,7 +2,8 @@ mangaReader.component('manga', {
   controllerAs: 'manga',
   controller: function(mangaFactory) {
     const manga = this;
-    console.warn(this);
+    manga.test = () => console.log('Hello, testing!');
+    manga.onClick = mangaFactory.selectManga;
   },
   bindings: {
     data: '<',
