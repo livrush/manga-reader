@@ -4,11 +4,16 @@
     <div class="add-header">
       <h2>Add Manga</h2>
       <div class="input-group form-group">
-        <button class="btn btn-info" ng-click="add.popFolder()">
-          <i class="fas fa-arrow-left"></i>
-        </button>
+        <div class="input-group-prepend">
+          <button class="btn btn-info" ng-click="add.popFolder()">
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <div class="input-group-text">
+            <i class="fas fa-folder-open"></i>
+          </div>
+        </div>
         <input type="text" class="form-control" ng-model="add.path" />
-        <button class="btn btn-info" ng-click="add.searchFolder()">Search</button>
+        <button class="btn btn-info input-group-append" ng-click="add.searchFolder()">Search</button>
       </div>
     </div>
 
@@ -17,7 +22,7 @@
         <add-list click="add.appendFolder" type="folder" list="add.folders"></add-list>
       </div>
       <div class="col-6 col-xs-12">
-        <add-list click="" type="file" list="add.files"></add-list>
+        <add-list click="add.selectFile" type="file" list="add.files"></add-list>
       </div>
     </div>
   </div>
