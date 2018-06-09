@@ -1,14 +1,33 @@
-<div class="flex flex-column">
-  <h2>Add Manga</h2>
-  Directory
-  <div class="flex">
-    <input type="text" class="form-control" ng-model="add.path"/>
-    <button class="btn btn-info" ng-click="add.searchDirectory()">Search</button>
+<div class="add-manga container">
+  <div class="add-header">
+    <h2>Add Manga</h2>
+    <div class="input-group form-group">
+      <button class="btn btn-info" ng-click="add.popDirectory()">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <input type="text" class="form-control" ng-model="add.path" />
+      <button class="btn btn-info" ng-click="add.searchDirectory()">Search</button>
+    </div>
   </div>
-  <!-- {{add.files}} -->
-  <ul>
-    <li ng-repeat="file in add.files track by $index" ng-click="add.appendDirectory(file)">
-      {{file}}
-    </li>
-  </ul>
+
+  <div class="row">
+    <div class="col-6 col-xs-12">
+      <ul class="list-group">
+        <li class="list-group-item add-file directory" ng-repeat="directory in add.directories track by $index" ng-click="add.appendDirectory(directory)">
+          <i class="fas fa-folder"></i>
+          <b>
+            {{directory}}
+          </b>
+        </li>
+      </ul>
+    </div>
+    <div class="col-6 col-xs-12">
+      <ul class="list-group">
+        <li class="list-group-item add-file" ng-repeat="file in add.files track by $index">
+          <i class="fas fa-file"></i>
+          {{file}}
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
