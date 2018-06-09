@@ -1,8 +1,3 @@
-var kitsu = require("kitsu")
-
-const api = new kitsu();
-
-
 mangaReader.component('library', {
   controllerAs: 'library',
   controller: function(mangaFactory, $scope) {
@@ -13,17 +8,19 @@ mangaReader.component('library', {
       fs.readFile(libraryIndexPath, 'utf8', function(err, indexContents) {
         const list = JSON.parse(indexContents);
         library.manga = list.concat(list).concat(list).concat(list);
+        library.selected = list[0];
         $scope.$apply();
       });
     }
 
     library.selected = {};
     library.select = (selected) => {
-      console.log(selected);
       library.selected = selected;
     }
 
-    getIndex();
+    library.$onInit = function() {
+      getIndex();
+    };
   },
   templateUrl: './components/library/library.template.html'
 });
