@@ -45,6 +45,7 @@ li {
 .selected {
   height: calc(100vh - 50px);
   margin-top: 50px;
+  overflow: hidden;
   position: fixed;
   width: 240px;
 }
@@ -69,5 +70,7 @@ li {
   position: absolute;
   transform: rotate(90deg);
   transform-origin: left top 0;
+  text-shadow: 0px 0px 4px #666;
+  white-space: nowrap;
   z-index: 1;
 }
