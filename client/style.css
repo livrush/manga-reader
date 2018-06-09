@@ -7,15 +7,17 @@ body {
   background: transparent;
   height: 100vh;
   overflow: hidden;
+  padding-left: 50px;
 }
 
 nav {
-  color: #666;
-  background: #212529;
-  width: 50px;
-  height: 100vh;
   align-items: center;
+  background: #212529;
+  color: #666;
+  height: 100vh;
+  left: 0;
   position: fixed;
+  width: 50px;
 }
 
 .nav-icon {
@@ -43,7 +45,7 @@ li {
 .library {
   align-content: flex-start;
   height: 100vh;
-  margin-left: 50px;
+  /* margin-left: 50px; */
   overflow: auto;
   width: calc(100vw - 290px);
 }
