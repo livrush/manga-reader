@@ -3,8 +3,13 @@ mangaReader.component('add', {
   controller: function($scope) {
     const add = this;
     add.path = os.homedir();
+    add.selected = {};
     add.folders = [];
     add.files = [];
+
+    add.selectFile = function(file) {
+      console.warn(file);
+    };
 
     add.popFolder = function() {
       add.path = path.dirname(add.path);
