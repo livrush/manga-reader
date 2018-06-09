@@ -2,6 +2,8 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const lodash = require('lodash');
+const JSZip = require('jszip');
+
 const mangaReader = angular.module('manga-reader', ['ui.router']);
 
 mangaReader.config(function ($stateProvider, $urlRouterProvider) {
