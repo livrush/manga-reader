@@ -2,7 +2,6 @@
   "name": "manga-reader",
   "description": "",
   "main": "main.js",
-  "directory": "client/bower_components",
   "authors": [
     "Olivia Sabo-Rush <w.phrush@gmail.com>"
   ],
