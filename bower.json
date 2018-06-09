@@ -2,7 +2,7 @@
   "name": "manga-reader",
   "description": "",
   "main": "main.js",
-  "directory" : "client/bower_components",
+  "directory": "client/bower_components",
   "authors": [
     "Olivia Sabo-Rush <w.phrush@gmail.com>"
   ],
@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "bootstrap": "^4.1.1",
-    "angular": "^1.7.0"
+    "angular": "^1.7.0",
+    "components-font-awesome": "^5.0.6"
   }
 }
