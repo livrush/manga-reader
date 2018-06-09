@@ -1,3 +1,5 @@
+const fs = require('fs');
+const os = require('os');
 const mangaReader = angular.module('manga-reader', ['ui.router']);
 
 mangaReader.config(function($stateProvider, $urlRouterProvider) {

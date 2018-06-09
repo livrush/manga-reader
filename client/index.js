@@ -1,5 +1,4 @@
-const fs = require('fs');
-const os = require('os');
+
 /*
   readFolder function to obtain the path
  */
