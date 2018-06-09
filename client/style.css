@@ -48,7 +48,7 @@ li {
   width: calc(100vw - 290px);
 }
 
-manga {
+manga:hover {
   background: red;
 }
 
