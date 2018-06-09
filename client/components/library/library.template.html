@@ -1,6 +1,6 @@
 <div class="flex flex-row">
     <ul id="library" class="library flex flex-row flex-wrap">
-    <manga ng-repeat="manga in library.manga" data="manga" select="library.select"></manga>
+    <manga ng-repeat="manga in library.manga track by $index" data="manga" select="library.select"></manga>
   </ul>
   <selected manga="library.selected"></selected>
 </div>
