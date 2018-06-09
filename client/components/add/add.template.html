@@ -2,17 +2,17 @@
   <div class="add-header">
     <h2>Add Manga</h2>
     <div class="input-group form-group">
-      <button class="btn btn-info" ng-click="add.popDirectory()">
+      <button class="btn btn-info" ng-click="add.popFolder()">
         <i class="fas fa-arrow-left"></i>
       </button>
       <input type="text" class="form-control" ng-model="add.path" />
-      <button class="btn btn-info" ng-click="add.searchDirectory()">Search</button>
+      <button class="btn btn-info" ng-click="add.searchFolder()">Search</button>
     </div>
   </div>
 
   <div class="row">
     <div class="col-6 col-xs-12">
-      <add-list click="add.appendDirectory" type="folder" list="add.directories"></add-list>
+      <add-list click="add.appendFolder" type="folder" list="add.folders"></add-list>
     </div>
     <div class="col-6 col-xs-12">
       <add-list click="" type="file" list="add.files"></add-list>

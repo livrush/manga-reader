@@ -3,28 +3,28 @@ mangaReader.component('add', {
   controller: function($scope) {
     const add = this;
     add.path = os.homedir();
-    add.directories = [];
+    add.folders = [];
     add.files = [];
 
-    add.popDirectory = function() {
+    add.popFolder = function() {
       add.path = path.dirname(add.path);
-      add.searchDirectory();
+      add.searchFolder();
     };
 
-    add.appendDirectory = function(file) {
+    add.appendFolder = function(file) {
       add.path = path.join(add.path, file);
-      add.searchDirectory();
+      add.searchFolder();
     };
 
-    add.searchDirectory = function() {
+    add.searchFolder = function() {
       add.files = [];
-      add.directories = [];
+      add.folders = [];
       fs.readdir(add.path, function(err, files) {
         if (err) return console.error(err);
         files
           .filter(file => fs.lstatSync(path.join(add.path, file)).isDirectory())
           .filter(file => file[0] !== '.')
-          .forEach(file => add.directories.push(file));
+          .forEach(file => add.folders.push(file));
         files
           .filter(file => !fs.lstatSync(path.join(add.path, file)).isDirectory())
           .filter(file => file[0] !== '.')
@@ -33,7 +33,7 @@ mangaReader.component('add', {
       });
     };
 
-    add.searchDirectory();
+    add.searchFolder();
   },
   templateUrl: './components/add/add.template.html'
 });
