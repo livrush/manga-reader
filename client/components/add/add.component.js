@@ -11,7 +11,7 @@ mangaReader.component('add', {
       const filePath = path.join(add.path, file);
       fs.readFile(filePath, function(err, data) {
         if (err) throw err;
-        zip.loadAsync(data).then(function ({ files }) {
+        JSZip.loadAsync(data).then(function ({ files }) {
           const onlyFiles = lodash.filter(files, file => !file.dir);
           const file = onlyFiles[10];
           file.async('blob').then(function(res) {
