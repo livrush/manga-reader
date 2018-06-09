@@ -6,7 +6,15 @@ const { app, BrowserWindow } = require('electron')
 
   function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({width: 800, height: 600})
+    debugger;
+    win = new BrowserWindow({
+      height: 600,
+      minHeight: 600,
+      minWidth: 800,
+      width: 800,
+      title: 'Manga Reader',
+      // titleBarStyle: 'hidden',
+    });
 
     // and load the index.html of the app.
     win.loadFile('client/index.html')
