@@ -20,5 +20,8 @@
   "homepage": "https://github.com/livrush/manga-reader#readme",
   "devDependencies": {
     "electron": "^2.0.2"
+  },
+  "dependencies": {
+    "kitsu": "^5.1.1"
   }
 }
