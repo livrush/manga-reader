@@ -1,0 +1,14 @@
+<div class="flex flex-column">
+  <h2>Add Manga</h2>
+  Directory
+  <div class="flex">
+    <input type="text" class="form-control" ng-model="add.path"/>
+    <button class="btn btn-info" ng-click="add.searchDirectory()">Search</button>
+  </div>
+  <!-- {{add.files}} -->
+  <ul>
+    <li ng-repeat="file in add.files track by $index">
+      {{file}}
+    </li>
+  </ul>
+</div>
