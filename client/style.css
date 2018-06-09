@@ -15,18 +15,6 @@ li {
   display: flex;
 }
 
-/* .flex-row {
-  flex-direction: row;
-}
-
-.flex-column {
-  flex-direction: column;
-}
-
-.flex-wrap {
-  flex-direction: wrap;
-} */
-
 .library {
   width: 80vw;
 }
@@ -36,4 +24,5 @@ li {
   height: 140px;
   background-size: cover;
   background-position: center;
+  cursor: pointer;
 }
