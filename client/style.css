@@ -1,16 +1,30 @@
-body {
+html {
   background: #333;
   background: linear-gradient(to bottom right, #666, #333);
+}
+
+body {
+  background: transparent;
+  height: 100vh;
+  overflow: hidden;
 }
 
 nav {
   color: #666;
   background: #212529;
-  height: 50px;
-  width: 100vw;
-  padding: 10px;
+  width: 50px;
+  height: 100vh;
   align-items: center;
   position: fixed;
+}
+
+.nav-icon {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  width: 50px;
 }
 
 ul {
@@ -28,23 +42,33 @@ li {
 
 .library {
   align-content: flex-start;
-  margin-top: 50px;
-  width: calc(100vw - 240px);
+  height: 100vh;
+  margin-left: 50px;
+  overflow: auto;
+  width: calc(100vw - 290px);
+}
+
+manga {
+  background: red;
 }
 
 .manga {
   background-size: cover;
   background-position: center;
   cursor: pointer;
-  height: calc((100vw - 240px) / 7 * 1.333);
+  height: calc((100vw - 290px) / 7 * 1.333);
   position: relative;
-  width: calc((100vw - 240px) / 7);
+  width: calc((100vw - 290px) / 7);
   z-index: 5;
+}
+
+.manga:hover {
+  opacity: 0.5;
 }
 
 .selected {
   height: calc(100vh - 50px);
-  margin-top: 50px;
+  /* margin-top: 50px; */
   overflow: hidden;
   position: fixed;
   width: 240px;

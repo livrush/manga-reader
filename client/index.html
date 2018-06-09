@@ -12,14 +12,17 @@
   <script src="index.js"></script>
 </head>
 
-<body ng-app="manga-reader">
-  <nav class="flex flex-row">
-    <i class="fas fa-book"></i>
-    <div class="flex flex-row">
+<body ng-app="manga-reader" class="flex">
+  <nav class="flex flex-column">
+    <i class="nav-icon fas fa-book"></i>
+    <i class="nav-icon fas fa-list"></i>
+    <i class="nav-icon fas fa-plus"></i>
+    <i class="nav-icon fas fa-search"></i>
+    <!-- <div class="flex flex-row">
       <label for="">Search</label>
       <input type="text" class="form-control">
     </div>
-    <input class="btn btn-default" type='file' onchange="onInput(this)" />
+    <input class="btn btn-default" type='file' onchange="onInput(this)" /> -->
   </nav>
   <library></library>
   <div ><ol id="display-files"></ol></div>
