@@ -5,5 +5,5 @@ mangaReader.component('addList', {
     click: '<',
   },
   controllerAs: 'list',
-  templateUrl: './components/add/add-list/add-list.template.html'
+  templateUrl: './components/add/list/add-list.template.html'
 });
