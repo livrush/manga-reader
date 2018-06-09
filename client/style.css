@@ -100,10 +100,15 @@ manga:hover {
   z-index: 1;
 }
 
-.add-file {
+.add-list-folder,
+.add-list-file {
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
+}
+
+.add-list-folder {
+  font-weight: bold;
 }
