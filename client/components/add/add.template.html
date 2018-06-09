@@ -12,14 +12,15 @@
 
   <div class="row">
     <div class="col-6 col-xs-12">
-      <ul class="list-group">
+      <add-list click="add.appendDirectory" type="directory" list="add.directories"></add-list>
+      <!-- <ul class="list-group">
         <li class="list-group-item add-file directory" ng-repeat="directory in add.directories track by $index" ng-click="add.appendDirectory(directory)">
           <i class="fas fa-folder"></i>
           <b>
             {{directory}}
           </b>
         </li>
-      </ul>
+      </ul> -->
     </div>
     <div class="col-6 col-xs-12">
       <ul class="list-group">
