@@ -8,12 +8,12 @@ mangaReader.component('add', {
 
     add.popDirectory = function() {
       add.path = path.dirname(add.path);
-      this.searchDirectory();
+      add.searchDirectory();
     };
 
     add.appendDirectory = function(file) {
       add.path = path.join(add.path, file);
-      this.searchDirectory();
+      add.searchDirectory();
     };
 
     add.searchDirectory = function() {
