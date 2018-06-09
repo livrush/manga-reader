@@ -8,28 +8,22 @@ mangaReader.component('library', {
   controller: function(mangaFactory, $scope) {
     const library = this;
 
-    api.get('anime', {
-      page: { limit: 20 },
-      sort: 'popularityRank',
-    })
-      .then(function({ data }) {
-        const list = data.map(anime => {
-          return {
-            cover: anime.posterImage.medium,
-            name: anime.canonicalTitle,
-            pages: anime.episodeCount,
-          };
-        })
+    const libraryIndexPath = path.join(__dirname, '/.manga/index.json');
+    const getIndex = function() {
+      fs.readFile(libraryIndexPath, 'utf8', function(err, indexContents) {
+        const list = JSON.parse(indexContents);
         library.manga = list.concat(list).concat(list).concat(list);
-        console.log(library.$apply);
         $scope.$apply();
-      })
-      .catch(console.log)
+      });
+    }
+
     library.selected = {};
     library.select = (selected) => {
       console.log(selected);
       library.selected = selected;
     }
+
+    getIndex();
   },
   templateUrl: './components/library/library.template.html'
 });
