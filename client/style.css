@@ -4,6 +4,8 @@ body {
 }
 
 nav {
+  color: #666;
+  background: #212529;
   height: 50px;
   width: 100vw;
   padding: 10px;
