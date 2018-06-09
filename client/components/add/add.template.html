@@ -7,7 +7,7 @@
   </div>
   <!-- {{add.files}} -->
   <ul>
-    <li ng-repeat="file in add.files track by $index">
+    <li ng-repeat="file in add.files track by $index" ng-click="add.appendDirectory(file)">
       {{file}}
     </li>
   </ul>
