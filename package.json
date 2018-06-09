@@ -22,6 +22,7 @@
     "electron": "^2.0.2"
   },
   "dependencies": {
+    "@uirouter/angularjs": "^1.0.18",
     "kitsu": "^5.1.1"
   }
 }

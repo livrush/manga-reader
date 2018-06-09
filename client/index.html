@@ -14,20 +14,30 @@
 
 <body ng-app="manga-reader" class="flex">
   <nav class="flex flex-column">
-    <i class="nav-icon fas fa-book"></i>
-    <i class="nav-icon fas fa-list"></i>
-    <i class="nav-icon fas fa-plus"></i>
-    <i class="nav-icon fas fa-search"></i>
+    <a ui-sref="home">
+      <i class="nav-icon fas fa-book"></i>
+    </a>
+    <a ui-sref="library">
+      <i class="nav-icon fas fa-list"></i>
+    </a>
+    <a ui-sref="add">
+      <i class="nav-icon fas fa-plus"></i>
+    </a>
+    <a ui-sref="search">
+      <i class="nav-icon fas fa-search"></i>
+    </a>
     <!-- <div class="flex flex-row">
       <label for="">Search</label>
       <input type="text" class="form-control">
     </div>
     <input class="btn btn-default" type='file' onchange="onInput(this)" /> -->
   </nav>
-  <library></library>
-  <div ><ol id="display-files"></ol></div>
+  <div ui-view></div>
+
+  <!-- <library></library> -->
   <!-- <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script> -->
   <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="app.js"></script>
   <script src="./components/library/library.component.js"></script>
   <script src="./components/manga/manga.component.js"></script>
