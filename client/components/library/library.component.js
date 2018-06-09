@@ -5,7 +5,9 @@ const api = new kitsu();
 
 mangaReader.component('library', {
   controllerAs: 'library',
-  controller: function(mangaFactory) {
+  controller: function(mangaFactory, $scope) {
+    const library = this;
+
     api.get('anime', {
       page: { limit: 20 },
       sort: 'popularityRank',
@@ -20,10 +22,9 @@ mangaReader.component('library', {
         })
         library.manga = list.concat(list).concat(list).concat(list);
         console.log(library.$apply);
+        $scope.$apply();
       })
       .catch(console.log)
-    const library = this;
-    library.manga = mangaFactory.list;
     library.selected = {};
     library.select = (selected) => {
       console.log(selected);
