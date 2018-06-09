@@ -23,7 +23,10 @@
   },
   "dependencies": {
     "@uirouter/angularjs": "^1.0.18",
+    "angular": "^1.7.1",
+    "jszip": "^3.1.5",
     "kitsu": "^5.1.1",
-    "lodash": "^4.17.10"
+    "lodash": "^4.17.10",
+    "rarjs": "0.0.2"
   }
 }
