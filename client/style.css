@@ -42,10 +42,10 @@ li {
   display: flex;
 }
 
+.add-manga,
 .library {
   align-content: flex-start;
   height: 100vh;
-  /* margin-left: 50px; */
   overflow: auto;
   width: calc(100vw - 290px);
 }
@@ -99,4 +99,12 @@ manga:hover {
   text-shadow: 0px 0px 4px #666;
   white-space: nowrap;
   z-index: 1;
+}
+
+.add-file {
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
 }
