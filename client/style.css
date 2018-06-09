@@ -16,13 +16,26 @@ li {
 }
 
 .library {
-  width: 80vw;
+  align-content: flex-start;
+  width: calc(100vw - 240px);
 }
 
 .manga {
-  width: 100px;
-  height: 140px;
+  width: calc((100vw - 240px) / 9);
+  height: calc((100vw - 240px) / 9 * 1.333);
   background-size: cover;
   background-position: center;
   cursor: pointer;
+}
+
+.selected {
+  width: 240px;
+  background: #fffaaf;
+  height: 100vh;
+  scroll-x: none;
+}
+
+.selected-manga {
+  width: 240px;
+  height: 320px;
 }
