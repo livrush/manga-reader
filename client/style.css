@@ -42,7 +42,7 @@ li {
   display: flex;
 }
 
-.add-manga,
+.add-file-reader,
 .library-manga-list {
   align-content: flex-start;
   height: 100vh;
