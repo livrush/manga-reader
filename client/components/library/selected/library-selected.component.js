@@ -1,4 +1,4 @@
-mangaReader.component('selected', {
+mangaReader.component('librarySelected', {
   bindings: {
     manga: '<',
   },
@@ -6,5 +6,5 @@ mangaReader.component('selected', {
   controller: function(mangaFactory) {
     const selected = this;
   },
-  templateUrl: './components/selected/selected.template.html'
+  templateUrl: './components/library/selected/library-selected.template.html'
 });

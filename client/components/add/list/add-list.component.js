@@ -4,7 +4,6 @@ mangaReader.component('addList', {
     list: '<',
     click: '<',
   },
-  controllerAs: 'addList',
-  controller: function($scope) {},
+  controllerAs: 'list',
   templateUrl: './components/add/add-list/add-list.template.html'
 });

@@ -1,4 +1,4 @@
-mangaReader.component('manga', {
+mangaReader.component('libraryManga', {
   controllerAs: 'manga',
   controller: function(mangaFactory) {
     const manga = this;
@@ -7,5 +7,5 @@ mangaReader.component('manga', {
     data: '<',
     select: '<',
   },
-  templateUrl: './components/manga/manga.template.html'
+  templateUrl: './components/library/manga/library-manga.template.html'
 });

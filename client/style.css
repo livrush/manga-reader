@@ -43,7 +43,7 @@ li {
 }
 
 .add-manga,
-.library {
+.library-manga-list {
   align-content: flex-start;
   height: 100vh;
   overflow: auto;
