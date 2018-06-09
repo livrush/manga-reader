@@ -23,6 +23,9 @@
     <a ui-sref="add">
       <i class="nav-icon fas fa-plus"></i>
     </a>
+    <a ui-sref="viewer">
+      <i class="nav-icon fas fa-eye"></i>
+    </a>
     <a ui-sref="search">
       <i class="nav-icon fas fa-search"></i>
     </a>
@@ -36,9 +39,10 @@
 
   <!-- <library></library> -->
   <!-- <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script> -->
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-  <script src="app.js"></script>
+  <script src="./bower_components/angular/angular.js"></script>
+  <script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="./app.js"></script>
+  <script src="./factories/manga.factory.js"></script>
 
   <script src="./components/library/library.component.js"></script>
   <script src="./components/library/manga/library-manga.component.js"></script>
@@ -48,7 +52,8 @@
   <script src="./components/add/list/add-list.component.js"></script>
   <script src="./components/add/selected/add-selected.component.js"></script>
 
-  <script src="./factories/manga.factory.js"></script>
+  <script src="./components/viewer/viewer.component.js"></script>
+
 </body>
 
 </html>

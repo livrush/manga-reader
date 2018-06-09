@@ -28,6 +28,10 @@ mangaReader.config(function ($stateProvider, $urlRouterProvider) {
       url: '/search',
       component: 'search',
     })
+    .state('viewer', {
+      url: '/viewer',
+      component: 'viewer',
+    })
 
 
 });

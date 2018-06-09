@@ -112,3 +112,16 @@ manga:hover {
 .add-list-folder {
   font-weight: bold;
 }
+
+
+.viewer {
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: calc(100vw - 50px);
+}
+
+.viewer img {
+  height: 100vh;
+}
