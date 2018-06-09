@@ -1,5 +1,14 @@
 body {
-  background: #ffafaf;
+  background: #333;
+  background: linear-gradient(to bottom right, #666, #333);
+}
+
+nav {
+  height: 50px;
+  width: 100vw;
+  padding: 10px;
+  align-items: center;
+  position: fixed;
 }
 
 ul {
@@ -17,25 +26,46 @@ li {
 
 .library {
   align-content: flex-start;
+  margin-top: 50px;
   width: calc(100vw - 240px);
 }
 
 .manga {
-  width: calc((100vw - 240px) / 9);
-  height: calc((100vw - 240px) / 9 * 1.333);
   background-size: cover;
   background-position: center;
   cursor: pointer;
+  height: calc((100vw - 240px) / 7 * 1.333);
+  position: relative;
+  width: calc((100vw - 240px) / 7);
+  z-index: 5;
 }
 
 .selected {
+  height: calc(100vh - 50px);
+  margin-top: 50px;
+  position: fixed;
   width: 240px;
-  background: #fffaaf;
-  height: 100vh;
-  scroll-x: none;
 }
 
 .selected-manga {
   width: 240px;
   height: 320px;
+}
+
+.selected-text {
+  padding: 10px;
+  position: relative;
+}
+
+.selected-text p {
+  text-align: right;
+}
+
+.selected-title {
+  font-size: 100px;
+  left: 90px;
+  position: absolute;
+  transform: rotate(90deg);
+  transform-origin: left top 0;
+  z-index: 1;
 }
