@@ -11,13 +11,15 @@ mangaReader.component('library', {
       sort: 'popularityRank',
     })
       .then(function({ data }) {
-        library.manga = data.map(anime => {
+        const list = data.map(anime => {
           return {
             cover: anime.posterImage.medium,
             name: anime.canonicalTitle,
             pages: anime.episodeCount,
           };
         })
+        library.manga = list.concat(list).concat(list).concat(list);
+        console.log(library.$apply);
       })
       .catch(console.log)
     const library = this;
