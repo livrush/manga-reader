@@ -1,6 +1,7 @@
 html {
-  background: #333;
-  background: linear-gradient(to bottom right, #666, #333);
+  /* background: linear-gradient(to bottom right, #666, #333); */
+  background-color: #333;
+  background-image: url(./assets/topography.svg);
 }
 
 body {
@@ -95,7 +96,7 @@ manga:hover {
   position: absolute;
   transform: rotate(90deg);
   transform-origin: left top 0;
-  text-shadow: 0px 0px 4px #666;
+  text-shadow: 0px 0px 30px #777;
   white-space: nowrap;
   z-index: 1;
 }
