@@ -2,8 +2,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const lodash = require('lodash');
-const JSZip = new require('jszip')();
-// const zip = new JSZip();
+const JSZip = require('jszip');
 
 const mangaReader = angular.module('manga-reader', ['ui.router']);
 
