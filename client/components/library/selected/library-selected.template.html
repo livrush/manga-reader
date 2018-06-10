@@ -1,6 +1,6 @@
 <div id="selected" class="selected">
-  <h2 class="selected-title">{{ selected.manga.name }}</h2>
-  <img src="{{ selected.manga.cover }}" alt="" class="selected-manga">
+  <h2 class="selected-title">{{ selected.manga.title }}</h2>
+  <img src="./.manga/{{selected.manga.title}}/thumb.jpg" alt="" class="selected-manga">
   <div class="selected-text">
     <p>Volumes: {{ selected.manga.volumes }}</p>
     <p>Chapters: {{ selected.manga.chapters }}</p>
