@@ -11,8 +11,22 @@ mangaReader.component('info', {
 
     info.$onInit = function() {
       const selectedManga = info.selectedManga = mangaFactory.getSelectedManga();
+      const fileContainer = {
+        chap: [],
+        vol: [],
+        one: [],
+      };
       mangaFactory.getFilesFromPath(path.join(__dirname, './.manga', selectedManga))
-        .then(console.log);
+        .then(function(files) {
+          return files.reduce(function(container, file) {
+            const [ prefix, numberWithSuffix ] = file.split('-');
+            console.log(prefix, numberWithSuffix);
+            const [ number ] = numberWithSuffix.split('.');
+            if (container[prefix]) container[prefix].push(number);
+            return container;
+          }, fileContainer);
+        })
+        .then(console.log)
     };
 
     info.$onDestroy = function() {
