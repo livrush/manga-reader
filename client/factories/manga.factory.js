@@ -21,6 +21,7 @@ mangaReader.factory('mangaFactory', function () {
     return new Promise(function(res, rej) {
       fs.readFile(filePath, function(err, data) {
         if (err) rej(err);
+        console.log(data);
         const zip = new JSZip();
         zip.loadAsync(data).then(function ({ files }) {
           const onlyFiles = lodash
