@@ -5,6 +5,10 @@ mangaReader.factory('mangaFactory', function () {
   const getFilePath = () => filePath;
   const setFilePath = (newFilePath) => filePath = newFilePath;
 
+  let selectedManga = 'itoshi-no-nekokke';
+  const getSelectedManga = () => selectedManga;
+  const setSelectedManga = (newSelectedManga) => selectedManga = newSelectedManga;
+
   const getIndex = function() {
     return new Promise(function(res, rej) {
       fs.readFile(libraryIndexPath, 'utf8', function(err, indexContents) {
@@ -43,6 +47,8 @@ mangaReader.factory('mangaFactory', function () {
   return {
     getIndex,
     getCollection,
+    getSelectedManga,
+    setSelectedManga,
     getFilePath,
     setFilePath,
   };
