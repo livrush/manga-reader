@@ -1,7 +1,7 @@
 <div id="" class="">
   <h4>{{ list.type }}</h4>
   <ul class="list-group">
-    <li class="list-group-item list-{{list.type}}" ng-repeat="number in list.numbers" ng-click="list.click(name)">
+    <li class="list-group-item list-{{list.type}}" ng-repeat="number in list.numbers" ng-click="list.click(number)" ui-sref="viewer">
       <i class="fas fa-{{list.type}}"></i> {{number}}
     </li>
   </ul>
