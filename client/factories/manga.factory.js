@@ -18,8 +18,8 @@ mangaReader.factory('mangaFactory', function () {
     return new Promise(function(res, rej) {
       fs.readFile(filePath, function(err, data) {
         if (err) rej(err);
-
-        JSZip.loadAsync(data).then(function ({ files }) {
+        const zip = new JSZip();
+        zip.loadAsync(data).then(function ({ files }) {
           const onlyFiles = lodash
             .chain(files)
             .filter(file => !file.dir)
