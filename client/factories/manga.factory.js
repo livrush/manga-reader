@@ -1,6 +1,9 @@
 mangaReader.factory('mangaFactory', function () {
   const libraryIndexPath = path.join(__dirname, '/.manga/index.json');
-  let filePath = 'test';
+
+  let filePath = '/Users/liv/Itoshi-no-Nekokke-ch30.zip';
+  const getFilePath = () => filePath;
+  const setFilePath = (newFilePath) => filePath = newFilePath;
 
   const getIndex = function() {
     return new Promise(function(res, rej) {
@@ -37,11 +40,11 @@ mangaReader.factory('mangaFactory', function () {
     });
   };
 
-  const getFilePath = () => filePath;
 
   return {
     getIndex,
     getCollection,
     getFilePath,
+    setFilePath,
   };
 })
