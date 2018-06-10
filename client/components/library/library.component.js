@@ -19,7 +19,7 @@ mangaReader.component('library', {
     };
 
     library.$onDestroy = function() {
-      mangaFactory.setFilePath('/Users/liv/Itoshi-no-Nekokke-ch31.zip');
+      mangaFactory.setSelectedManga(library.selected.title);
     }
   },
   templateUrl: './components/library/library.template.html'

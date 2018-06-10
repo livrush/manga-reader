@@ -3,6 +3,8 @@ mangaReader.component('info', {
   controller: function(mangaFactory, $scope) {
     const info = this;
 
+    info.selectedManga = mangaFactory.getSelectedManga();
+
     info.selected = {};
 
     info.select = (selected) => {
@@ -10,12 +12,7 @@ mangaReader.component('info', {
     }
 
     info.$onInit = function() {
-      mangaFactory.getIndex()
-        .then(function(index) {
-          info.manga = index.concat(index).concat(index).concat(index);
-          info.selected = index[0];
-          $scope.$apply();
-        });
+
     };
 
     info.$onDestroy = function() {
