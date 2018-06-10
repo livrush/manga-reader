@@ -1,5 +1,6 @@
 mangaReader.factory('mangaFactory', function () {
   const libraryIndexPath = path.join(__dirname, '/.manga/index.json');
+  let filePath = 'test';
 
   const getIndex = function() {
     return new Promise(function(res, rej) {
@@ -20,7 +21,6 @@ mangaReader.factory('mangaFactory', function () {
             .chain(files)
             .filter(file => !file.dir)
             .filter(file => path.extname(file.name) === '.png')
-            .filter(file => !console.log(file.name))
             .filter(file => !file.name.includes('__MACOSX'))
             .map(file => {
               return file.async('blob').then(function(blob) {
@@ -29,7 +29,6 @@ mangaReader.factory('mangaFactory', function () {
               });
             })
             .value();
-          console.log(onlyFiles);
           const pAll = Promise.all(onlyFiles);
           res(pAll);
         });
@@ -38,8 +37,11 @@ mangaReader.factory('mangaFactory', function () {
     });
   };
 
+  const getFilePath = () => filePath;
+
   return {
     getIndex,
     getCollection,
+    getFilePath,
   };
 })
