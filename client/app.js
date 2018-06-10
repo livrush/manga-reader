@@ -19,6 +19,10 @@ mangaReader.config(function ($stateProvider, $urlRouterProvider) {
       url: '/library',
       component: 'library',
     })
+    .state('info', {
+      url: '/info',
+      component: 'info',
+    })
     .state('add', {
       url: '/add',
       component: 'add',
