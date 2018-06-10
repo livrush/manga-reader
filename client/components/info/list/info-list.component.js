@@ -1,13 +1,9 @@
 mangaReader.component('infoList', {
   bindings: {
-    manga: '<',
+    numbers: '<',
+    type: '<',
   },
   controllerAs: 'list',
-  controller: function(mangaFactory) {
-    const list = this;
-    list.displayTitle = function(title) {
-      return title.replace(/-/g, ' ');
-    }
-  },
+  controller: function(mangaFactory) {},
   templateUrl: './components/info/list/info-list.template.html'
 });

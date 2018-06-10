@@ -20,13 +20,14 @@ mangaReader.component('info', {
         .then(function(files) {
           return files.reduce(function(container, file) {
             const [ prefix, numberWithSuffix ] = file.split('-');
-            console.log(prefix, numberWithSuffix);
             const [ number ] = numberWithSuffix.split('.');
             if (container[prefix]) container[prefix].push(number);
             return container;
           }, fileContainer);
         })
-        .then(console.log)
+        .then(function(container) {
+          info.lists = fileContainer;
+        })
     };
 
     info.$onDestroy = function() {
