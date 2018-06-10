@@ -119,9 +119,27 @@ manga:hover {
   display: flex;
   height: 100vh;
   justify-content: center;
+  position: relative;
   width: calc(100vw - 50px);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .viewer img {
   height: 100vh;
+}
+
+.viewer-controls {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.viewer-half {
+  height: 100%;
+  width: 50%;
 }

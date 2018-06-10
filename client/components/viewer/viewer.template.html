@@ -1,4 +1,7 @@
-<div class="viewer">
+<div id="viewer" class="viewer">
+  <div class="viewer-controls flex flex-row">
+    <div class="viewer-half"  ng-click="viewer.back()"></div>
+    <div class="viewer-half"  ng-click="viewer.forward()"></div>
+  </div>
   <img src="{{viewer.pages[viewer.index]}}" alt="">
-  <button class="btn btn-danger"  ng-click="viewer.forward()">Next</button>
 </div>
