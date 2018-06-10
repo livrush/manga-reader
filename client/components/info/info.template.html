@@ -1,9 +1,7 @@
 <div id="library" class="flex flex-row">
-  <h1>
-    {{ info.selectedManga }}
-  </h1>
-  <info-display manga="info.selected"></info-display>
-  <ul class="info-list flex flex-row flex-wrap">
-    <info-list ng-repeat="manga in info.manga track by $index" data="manga" select="info.select"></info-list>
-  </ul>
+  <info-display manga="info.selectedManga"></info-display>
+  <info-list manga="info.selectedManga"></info-list>
+  <!-- <ul class="info-list flex flex-row flex-wrap"> -->
+    <!-- <info-list ng-repeat="manga in info.manga track by $index" data="manga" select="info.select"></info-list> -->
+  <!-- </ul> -->
 </div>

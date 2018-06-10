@@ -4,8 +4,7 @@ mangaReader.component('infoDisplay', {
     const display = this;
   },
   bindings: {
-    data: '<',
-    select: '<',
+    manga: '<',
   },
   templateUrl: './components/info/display/info-display.template.html'
 });
