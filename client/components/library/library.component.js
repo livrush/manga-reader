@@ -3,7 +3,6 @@ mangaReader.component('library', {
   controller: function(mangaFactory, $scope) {
     const library = this;
 
-    const libraryIndexPath = path.join(__dirname, '/.manga/index.json');
     const getIndex = function() {
       fs.readFile(libraryIndexPath, 'utf8', function(err, indexContents) {
         const list = JSON.parse(indexContents);
@@ -19,7 +18,12 @@ mangaReader.component('library', {
     }
 
     library.$onInit = function() {
-      getIndex();
+      mangaFactory.getIndex()
+        .then(function(index) {
+          library.manga = index.concat(index).concat(index).concat(index);
+          library.selected = index[0];
+          $scope.$apply();
+        });
     };
   },
   templateUrl: './components/library/library.template.html'
