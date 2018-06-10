@@ -44,14 +44,14 @@ mangaReader.factory('mangaFactory', function () {
   };
 
   const getSomeFromPath = function(filePath, isDirectory) {
+    console.log(filePath);
     return new Promise(function(res, rej) {
-      fs.readdir(add.path, function(err, files) {
+      fs.readdir(filePath, function(err, files) {
         if (err) rej(err);
-        const folders = files
-          .filter(file => fs.lstatSync(path.join(add.path, file)).isDirectory() === isDirectory)
+        const filteredFiles = files
           .filter(file => file[0] !== '.')
-          .forEach(file => add.folders.push(file));
-        res(folders);
+          .filter(file => fs.lstatSync(path.join(filePath, file)).isDirectory() === isDirectory)
+        res(filteredFiles);
       });
     });
   }

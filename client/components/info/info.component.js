@@ -10,7 +10,9 @@ mangaReader.component('info', {
     }
 
     info.$onInit = function() {
-      info.selectedManga = mangaFactory.getSelectedManga();
+      const selectedManga = info.selectedManga = mangaFactory.getSelectedManga();
+      mangaFactory.getFilesFromPath(path.join(__dirname, './.manga', selectedManga))
+        .then(console.log);
     };
 
     info.$onDestroy = function() {
