@@ -5,7 +5,7 @@ mangaReader.factory('mangaFactory', function () {
   const getFilePath = () => filePath;
   const setFilePath = (newFilePath) => filePath = newFilePath;
 
-  let selectedManga = 'itoshi-no-nekokke';
+  let selectedManga = 'itoshi-no-nekkoke';
   const getSelectedManga = () => selectedManga;
   const setSelectedManga = (newSelectedManga) => selectedManga = newSelectedManga;
 
@@ -43,6 +43,26 @@ mangaReader.factory('mangaFactory', function () {
     });
   };
 
+  const getSomeFromPath = function(filePath, isDirectory) {
+    return new Promise(function(res, rej) {
+      fs.readdir(add.path, function(err, files) {
+        if (err) rej(err);
+        const folders = files
+          .filter(file => fs.lstatSync(path.join(add.path, file)).isDirectory() === isDirectory)
+          .filter(file => file[0] !== '.')
+          .forEach(file => add.folders.push(file));
+        res(folders);
+      });
+    });
+  }
+
+  const getFoldersFromPath = function(filePath) {
+    return getSomeFromPath(filePath, true);
+  }
+
+  const getFilesFromPath = function(filePath) {
+    return getSomeFromPath(filePath, false);
+  }
 
   return {
     getIndex,
@@ -51,5 +71,7 @@ mangaReader.factory('mangaFactory', function () {
     setSelectedManga,
     getFilePath,
     setFilePath,
+    getFilesFromPath,
+    getFoldersFromPath,
   };
 })
