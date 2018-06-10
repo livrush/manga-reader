@@ -27,6 +27,8 @@
     "jszip": "^3.1.5",
     "kitsu": "^5.1.1",
     "lodash": "^4.17.10",
-    "rarjs": "0.0.2"
+    "node-unrar-js": "^0.8.1",
+    "rarjs": "0.0.2",
+    "unpack-all": "0.0.4"
   }
 }
