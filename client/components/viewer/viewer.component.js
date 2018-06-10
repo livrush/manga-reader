@@ -2,13 +2,14 @@ mangaReader.component('viewer', {
   controllerAs: 'viewer',
   controller: function($scope, mangaFactory) {
     const viewer = this;
-    const filePath = '/Users/liv/Itoshi-no-Nekokke-ch30.zip'
+    const filePath = '/Users/liv/Itoshi-no-Nekokke-ch30.zip';
+
+    viewer.test = (val) => console.log('Working!', val);
 
     viewer.pages = [];
     viewer.index = 0;
-    viewer.forward = function() {
-      viewer.index++;
-    };
+    viewer.back = () => { if (viewer.index > 0) viewer.index--; };
+    viewer.forward = () => { if (viewer.index < viewer.pages.length - 1) viewer.index++; };
 
     viewer.$onInit = function() {
       mangaFactory.getCollection(filePath)
