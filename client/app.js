@@ -30,11 +30,6 @@ mangaReader.config(function ($stateProvider, $urlRouterProvider) {
     .state('viewer', {
       url: '/viewer',
       component: 'viewer',
-      resolve: {
-        filePath: function(mangaFactory) {
-          return mangaFactory.getFilePath();
-        }
-      }
     })
 
 });
