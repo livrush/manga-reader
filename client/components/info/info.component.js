@@ -21,7 +21,8 @@ mangaReader.component('info', {
           return files.reduce(function(container, file) {
             const [ prefix, numberWithSuffix ] = file.split('-');
             const [ number ] = numberWithSuffix.split('.');
-            if (container[prefix]) container[prefix].push(number);
+            // TODO: make text better for list items //
+            if (container[prefix]) container[prefix].push(file);
             return container;
           }, fileContainer);
         })
