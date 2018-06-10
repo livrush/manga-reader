@@ -15,7 +15,9 @@ mangaReader.component('viewer', {
     viewer.forward = () => { if (viewer.index < viewer.pages.length - 1) viewer.index++; };
 
     viewer.$onInit = function() {
-      mangaFactory.getCollection(viewer.filePath)
+      const filePath = mangaFactory.getFilePath();
+      console.log('File path on init!', filePath);
+      mangaFactory.getCollection(filePath)
       .then(function(blobUrls) {
         viewer.pages = blobUrls;
         $scope.$apply();
