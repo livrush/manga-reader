@@ -5,7 +5,6 @@ mangaReader.component('viewer', {
   controllerAs: 'viewer',
   controller: function($scope, mangaFactory) {
     const viewer = this;
-    console.log(viewer);
 
     viewer.test = (val) => console.log('Working!', val);
 
@@ -16,7 +15,6 @@ mangaReader.component('viewer', {
 
     viewer.$onInit = function() {
       const filePath = mangaFactory.getFilePath();
-      console.log('File path on init!', filePath);
       mangaFactory.getCollection(filePath)
       .then(function(blobUrls) {
         viewer.pages = blobUrls;
