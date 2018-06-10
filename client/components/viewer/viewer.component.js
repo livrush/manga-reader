@@ -6,7 +6,6 @@ mangaReader.component('viewer', {
   controller: function($scope, mangaFactory) {
     const viewer = this;
     console.log(viewer);
-    const filePath = '/Users/liv/Itoshi-no-Nekokke-ch30.zip';
 
     viewer.test = (val) => console.log('Working!', val);
 
@@ -16,7 +15,7 @@ mangaReader.component('viewer', {
     viewer.forward = () => { if (viewer.index < viewer.pages.length - 1) viewer.index++; };
 
     viewer.$onInit = function() {
-      mangaFactory.getCollection(filePath)
+      mangaFactory.getCollection(viewer.filePath)
       .then(function(blobUrls) {
         viewer.pages = blobUrls;
         $scope.$apply();
