@@ -3,12 +3,6 @@ mangaReader.component('info', {
   controller: function(mangaFactory, $scope) {
     const info = this;
 
-    info.selected = {};
-
-    info.select = (selected) => {
-      info.selected = selected;
-    }
-
     info.$onInit = function() {
       const selectedManga = info.selectedManga = mangaFactory.getSelectedManga();
       const fileContainer = {
@@ -30,10 +24,6 @@ mangaReader.component('info', {
           info.lists = fileContainer;
         })
     };
-
-    info.$onDestroy = function() {
-      mangaFactory.setFilePath('/Users/liv/Itoshi-no-Nekokke-ch31.zip');
-    }
   },
   templateUrl: './components/info/info.template.html'
 });
