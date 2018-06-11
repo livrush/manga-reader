@@ -1,6 +1,6 @@
 <div id="selected" class="selected" ng-if="selected.manga.title">
   <h2 class="selected-title">{{ selected.displayTitle(selected.manga.title) }}</h2>
-  <img src="./.manga/{{selected.manga.title}}/.thumb.jpg" alt="" class="selected-manga">
+  <img ng-src="{{ selected.cover(selected.manga.title) }}" alt="" class="selected-manga">
   <div class="selected-text">
     <p>Volumes: {{ selected.manga.volumes }}</p>
     <p>Chapters: {{ selected.manga.chapters }}</p>

@@ -8,6 +8,9 @@ mangaReader.component('librarySelected', {
     selected.displayTitle = function(title) {
       return title.replace(/-/g, ' ');
     }
+    selected.cover = (title) => {
+      return `./.manga/${title}/.thumb.jpg`
+    }
   },
   templateUrl: './components/library/selected/library-selected.template.html'
 });
