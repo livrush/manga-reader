@@ -28,21 +28,17 @@ mangaReader.component('viewer', {
       document.onkeydown = checkKey;
 
       function checkKey(e) {
-
         e = e || window.event;
-        console.log(e);
-        if (e.keyCode == '38') {
-          // up arrow
-        } else if (e.keyCode == '40') {
-          // down arrow
-        } else if (e.keyCode == '37') {
-          // left arrow
-          document.getElementById('viewer-back').click();
-        } else if (e.keyCode == '39') {
-          // right arrow
-          document.getElementById('viewer-forward').click();
-        }
-
+        switch (e.keyCode) {
+          case  37:
+          case '37':
+            document.getElementById('viewer-back').click();
+            break;
+          case  39:
+          case '39':
+            document.getElementById('viewer-forward').click();
+            break;
+        };
       }
     }
 
