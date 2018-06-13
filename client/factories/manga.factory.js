@@ -44,7 +44,7 @@ mangaReader.factory('mangaFactory', function () {
 
           onlyFiles = onlyFiles
             .sort(cmpStringsWithNumbers)
-            .filter((file) => !console.log(file.name))
+            // .filter((file) => !console.log(file.name))
             .map(file => {
               return file.async('blob').then(function (blob) {
                 var urlCreator = window.URL || window.webkitURL;
