@@ -6,9 +6,9 @@ mangaReader.component('info', {
     info.$onInit = function() {
       const selectedManga = info.selectedManga = mangaFactory.getSelectedManga();
       const fileContainer = {
-        chap: [],
-        vol: [],
-        one: [],
+        volume: [],
+        chapter: [],
+        oneshot: [],
       };
       mangaFactory.getFilesFromPath(path.join(__dirname, './.manga', selectedManga))
         .then(function(files) {
