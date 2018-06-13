@@ -3,7 +3,7 @@ mangaReader.component('viewer', {
     filePath: '@',
   },
   controllerAs: 'viewer',
-  controller: function ($scope, mangaFactory) {
+  controller: function ($scope, mangaFactory, indexFactory) {
     const viewer = this;
 
     viewer.test = (val) => console.log('Working!', val);
@@ -14,7 +14,13 @@ mangaReader.component('viewer', {
       if (viewer.index > 0) viewer.index--;
     };
     viewer.forward = () => {
+      const selectedManga = mangaFactory.getSelectedManga();
       if (viewer.index < viewer.pages.length - 1) viewer.index++;
+      if (viewer.index === viewer.pages.length - 1) { console.log('end'); }
+      indexFactory.updateSelectedIndex(selectedManga, {
+        currentPage: viewer.index,
+        currentFile: mangaFactory.getFilePath(),
+      });
     };
 
     viewer.$onInit = function () {
