@@ -18,7 +18,7 @@ mangaReader.factory('indexFactory', function () {
   };
 
   const getSelectedIndex = function(mediaName) {
-    const selectedIndexPath = path.join(libraryPath, mediaName, 'index.json');
+    const selectedIndexPath = path.join(libraryPath, mediaName, '.index.json');
     return new Promise(function (res, rej) {
       fs.readFile(selectedIndexPath, 'utf8', function (err, indexContents) {
         if (indexContents) res(JSON.parse(indexContents));
@@ -29,7 +29,7 @@ mangaReader.factory('indexFactory', function () {
   };
 
   const updateSelectedIndex = function(mediaName, updatedInfo) {
-    const selectedIndexPath = path.join(libraryPath, mediaName, 'index.json');
+    const selectedIndexPath = path.join(libraryPath, mediaName, '.index.json');
     return new Promise(function (res, rej) {
       fs.readFile(selectedIndexPath, 'utf8', function (err, indexContents) {
         let index;
