@@ -5,6 +5,10 @@ mangaReader.factory('mangaFactory', function () {
   const getFilePath = () => filePath;
   const setFilePath = (newFilePath) => filePath = newFilePath;
 
+  let selectedFile = {};
+  const getSelectedFile = () => selectedFile;
+  const setSelectedFile = (newFile) => selectedFile = newFile;
+
   let selectedManga = 'itoshi-no-nekokke';
   const getSelectedManga = () => selectedManga;
   const setSelectedManga = (newSelectedManga) => selectedManga = newSelectedManga;
@@ -131,6 +135,8 @@ mangaReader.factory('mangaFactory', function () {
     setSelectedManga,
     getFilePath,
     setFilePath,
+    getSelectedFile,
+    setSelectedFile,
     getFilesFromPath,
     getFoldersFromPath,
   };
