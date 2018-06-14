@@ -39,7 +39,6 @@ mangaReader.factory('indexFactory', function () {
         } else {
           index = updatedInfo;
         }
-        console.log(index);
         fs.writeFile(selectedIndexPath, JSON.stringify(index), function(err) { if (err) throw err });
       });
     });
