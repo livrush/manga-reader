@@ -5,7 +5,7 @@ mangaReader.factory('mangaFactory', function () {
   const getFilePath = () => filePath;
   const setFilePath = (newFilePath) => filePath = newFilePath;
 
-  let selectedFile = {};
+  let selectedFile = null;
   const getSelectedFile = () => selectedFile;
   const setSelectedFile = (newFile) => selectedFile = newFile;
 
@@ -22,6 +22,7 @@ mangaReader.factory('mangaFactory', function () {
   }
 
   const getCollection = function (filePath) {
+    console.log(filePath);
     return new Promise(function (res, rej) {
       fs.readFile(filePath, function (err, data) {
         if (err) rej(err);

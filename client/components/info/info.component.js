@@ -3,7 +3,8 @@ mangaReader.component('info', {
   controller: function(mangaFactory, $scope, indexFactory) {
     const info = this;
     info.clickSaved = function(selectedIndex) {
-      mangaFactory.setSelectedFile(selectedIndex.currentFile);
+      console.log(selectedIndex);
+      mangaFactory.setSelectedFile(selectedIndex);
     };
 
     info.$onInit = function() {

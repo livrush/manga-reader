@@ -8,7 +8,10 @@ mangaReader.component('infoList', {
   controller: function(mangaFactory) {
     const list = this;
     list.click = function(file) {
-      mangaFactory.setFilePath(path.join(__dirname, './.manga', list.manga, file));
+      mangaFactory.setSelectedFile({
+        currentPage: 0,
+        currentFile: path.join(__dirname, './.manga', list.manga, file),
+      });
     }
   },
   templateUrl: './components/info/list/info-list.template.html'

@@ -1,9 +1,8 @@
 mangaReader.component('viewer', {
   bindings: {
-    filePath: '@',
   },
   controllerAs: 'viewer',
-  controller: function ($scope, mangaFactory, indexFactory) {
+  controller: function ($scope, $location, mangaFactory, indexFactory) {
     const viewer = this;
 
     viewer.test = (val) => console.log('Working!', val);
@@ -12,20 +11,31 @@ mangaReader.component('viewer', {
     viewer.index = 0;
     viewer.back = () => {
       if (viewer.index > 0) viewer.index--;
-    };
-    viewer.forward = () => {
-      const selectedManga = mangaFactory.getSelectedManga();
-      if (viewer.index < viewer.pages.length - 1) viewer.index++;
-      if (viewer.index === viewer.pages.length - 1) { console.log('end'); }
-      indexFactory.updateSelectedIndex(selectedManga, {
-        currentPage: viewer.index,
-        currentFile: mangaFactory.getFilePath(),
-      });
+      viewer.updateIndex();
     };
 
+    viewer.forward = () => {
+      if (viewer.index < viewer.pages.length - 1) viewer.index++;
+      if (viewer.index === viewer.pages.length - 1) { console.log('end'); }
+      viewer.updateIndex();
+    };
+
+    viewer.updateIndex = () => {
+      const selectedManga = mangaFactory.getSelectedManga();
+      indexFactory.updateSelectedIndex(selectedManga, {
+        currentPage: viewer.index,
+        currentFile: viewer.filePath,
+      });
+    }
+
     viewer.$onInit = function () {
-      const filePath = mangaFactory.getFilePath();
-      mangaFactory.getCollection(filePath)
+      const selectedFile = mangaFactory.getSelectedFile();
+      console.log($location);
+      if (!selectedFile) return $location.path('/');
+
+      viewer.index = selectedFile.currentPage;
+      viewer.filePath = selectedFile.currentFile;
+      mangaFactory.getCollection(selectedFile.currentFile)
         .then(function (blobUrls) {
           viewer.pages = blobUrls;
           $scope.$apply();
