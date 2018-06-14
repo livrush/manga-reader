@@ -2,6 +2,9 @@ mangaReader.component('info', {
   controllerAs: 'info',
   controller: function(mangaFactory, $scope, indexFactory) {
     const info = this;
+    info.clickSaved = function(selectedIndex) {
+      mangaFactory.setFilePath(selectedIndex.currentFile);
+    };
 
     info.$onInit = function() {
       const selectedManga = info.selectedManga = mangaFactory.getSelectedManga();
@@ -10,6 +13,7 @@ mangaReader.component('info', {
         chapter: [],
         oneshot: [],
       };
+
       mangaFactory.getFilesFromPath(path.join(__dirname, './.manga', selectedManga))
       .then(function(files) {
         return files.reduce(function(container, file) {
@@ -23,6 +27,7 @@ mangaReader.component('info', {
       .then(function(container) {
         info.lists = fileContainer;
       })
+
       indexFactory.getSelectedIndex(selectedManga)
       .then(function(index) {
         console.log(index);
