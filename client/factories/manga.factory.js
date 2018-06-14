@@ -22,7 +22,6 @@ mangaReader.factory('mangaFactory', function () {
   }
 
   const getCollection = function (filePath) {
-    console.log(filePath);
     return new Promise(function (res, rej) {
       fs.readFile(filePath, function (err, data) {
         if (err) rej(err);
