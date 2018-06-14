@@ -35,5 +35,9 @@ mangaReader.config(function ($stateProvider, $urlRouterProvider) {
       url: '/viewer',
       component: 'viewer',
     })
+    .state('settings', {
+      url: '/settings',
+      component: 'settings',
+    })
 
 });
