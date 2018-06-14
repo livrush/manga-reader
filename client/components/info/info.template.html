@@ -5,7 +5,7 @@
     <div class="saved-place" ng-if="info.selectedIndex">
       <div class="list-group">
         <li class="list-group-item list-group-item-dark">Continue</li>
-        <a class="list-group-item list-group-item-action list-group-item-light" ng-click="list.click(number)" ui-sref="viewer">
+        <a class="list-group-item list-group-item-action list-group-item-light" ng-click="list.clickSaved(info.selectedIndex)" ui-sref="viewer">
           <i class="fas fa-document"></i> {{info.selectedIndex.currentFile}}
         </a>
       </div>
