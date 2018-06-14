@@ -30,7 +30,6 @@ mangaReader.component('viewer', {
 
     viewer.$onInit = function () {
       const selectedFile = mangaFactory.getSelectedFile();
-      console.log($location);
       if (!selectedFile) return $location.path('/');
 
       viewer.index = selectedFile.currentPage;
