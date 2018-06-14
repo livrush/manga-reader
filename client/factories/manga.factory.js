@@ -1,15 +1,11 @@
 mangaReader.factory('mangaFactory', function () {
   const libraryIndexPath = path.join(__dirname, '/.manga/index.json');
 
-  let filePath = null;
-  const getFilePath = () => filePath;
-  const setFilePath = (newFilePath) => filePath = newFilePath;
-
   let selectedFile = null;
   const getSelectedFile = () => selectedFile;
   const setSelectedFile = (newFile) => selectedFile = newFile;
 
-  let selectedManga = 'itoshi-no-nekokke';
+  let selectedManga = null;
   const getSelectedManga = () => selectedManga;
   const setSelectedManga = (newSelectedManga) => selectedManga = newSelectedManga;
 
@@ -133,8 +129,6 @@ mangaReader.factory('mangaFactory', function () {
     getCollection,
     getSelectedManga,
     setSelectedManga,
-    getFilePath,
-    setFilePath,
     getSelectedFile,
     setSelectedFile,
     getFilesFromPath,
