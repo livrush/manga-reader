@@ -1,7 +1,15 @@
-<div id="library" class="flex flex-row">
+<div id="info" class="site-width flex flex-row">
   <info-display manga="info.selectedManga"></info-display>
   <div class="container">
     <h2>{{ info.selectedManga }}</h2>
+    <div class="saved-place" ng-if="info.selectedIndex">
+      <div class="list-group">
+        <li class="list-group-item list-group-item-dark">Continue</li>
+        <a class="list-group-item list-group-item-action list-group-item-light" ng-click="list.click(number)" ui-sref="viewer">
+          <i class="fas fa-document"></i> {{info.selectedIndex.currentFile}}
+        </a>
+      </div>
+    </div>
     <info-list manga="info.selectedManga" numbers="numbers" type="type" ng-repeat="(type, numbers) in info.lists"></info-list>
   </div>
 </div>
