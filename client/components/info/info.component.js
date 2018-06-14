@@ -1,6 +1,6 @@
 mangaReader.component('info', {
   controllerAs: 'info',
-  controller: function(mangaFactory, $scope, indexFactory) {
+  controller: function($scope, $location, mangaFactory, indexFactory) {
     const info = this;
     info.clickSaved = function(selectedIndex) {
       console.log(selectedIndex);
@@ -9,6 +9,9 @@ mangaReader.component('info', {
 
     info.$onInit = function() {
       const selectedManga = info.selectedManga = mangaFactory.getSelectedManga();
+
+      if (!selectedManga) return $location.path('/');
+
       const fileContainer = {
         volume: [],
         chapter: [],
