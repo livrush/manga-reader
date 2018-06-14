@@ -24,7 +24,11 @@ mangaReader.component('info', {
         info.lists = fileContainer;
       })
       indexFactory.getSelectedIndex(selectedManga)
-      .then(console.log)
+      .then(function(index) {
+        console.log(index);
+        info.selectedIndex = index;
+        $scope.$apply();
+      })
       .catch(console.error);
     };
   },
