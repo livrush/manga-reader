@@ -19,6 +19,7 @@ nav {
   left: 0;
   position: fixed;
   width: 50px;
+  z-index: 10;
 }
 
 .nav-icon {
@@ -45,6 +46,10 @@ li {
 
 .flex {
   display: flex;
+}
+
+.space-between {
+  justify-content: space-between;
 }
 
 .add-file-reader,
@@ -132,6 +137,21 @@ manga:hover {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.viewer-nav {
+  left: 0;
+  opacity: 0.1;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  transition: 200ms;
+  z-index: 5;
+}
+
+.viewer-nav:hover {
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 1;
 }
 
 .viewer img {
