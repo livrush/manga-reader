@@ -2,7 +2,7 @@
   <h2 class="title mt-3 ml-3">Add Manga</h2>
   <div class="flex flex-row">
 
-    <div class="add-file-reader site-width pl-3" ng-if="!add.selected">
+    <div class="add-file-reader site-width pl-3" ng-if="!add.confirmed">
 
       <div class="add-header">
         <div class="input-group form-group">
@@ -29,6 +29,6 @@
       </div>
     </div>
 
-    <add-selected media="add.selectedFile" confirm="add.confirmFile"></add-selected>
+    <add-selected media="add.selected" confirm="add.confirmFile" confirmed="add.confirmed"></add-selected>
   </div>
 </div>
