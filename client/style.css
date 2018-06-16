@@ -154,7 +154,8 @@ manga:hover {
   opacity: 1;
 }
 
-.viewer img {
+.viewer img,
+.viewer canvas {
   height: 100vh;
 }
 
