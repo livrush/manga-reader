@@ -76,78 +76,32 @@ mangaReader.factory('mangaFactory', function () {
       pdfjsLib.getDocument(filePath).then(function (pdf) {
         console.log('# Document Loaded');
 
-        const pages = [];
-
-        Array.from(Array(pdf.numPages)).forEach(function(e, i) {
+        const pages = Array.from(Array(pdf.numPages)).map(function(e, i) {
 
           const pageNum = i + 1;
 
-          pdf.getPage(pageNum).then(function (page) {
-            console.log('page', pageNum, page);
-            var scale = 1.5;
-            var viewport = page.getViewport(scale);
+          return pdf.getPage(pageNum)
+          // .then(function (page) {
+          //   console.log('page', pageNum, page);
+          //   var scale = 1.5;
+          //   var viewport = page.getViewport(scale);
 
-            // Prepare canvas using PDF page dimensions.
-            var canvas = document.getElementById('pdf-container');
-            var context = canvas.getContext('2d');
-            canvas.height = viewport.height;
-            canvas.width = viewport.width;
+          //   // Prepare canvas using PDF page dimensions.
+          //   var canvas = document.getElementById('pdf-container');
+          //   var context = canvas.getContext('2d');
+          //   canvas.height = viewport.height;
+          //   canvas.width = viewport.width;
 
-            // Render PDF page into canvas context.
-            var renderContext = {
-              canvasContext: context,
-              viewport: viewport
-            };
-            page.render(renderContext);
-          });
-
+          //   // Render PDF page into canvas context.
+          //   var renderContext = {
+          //     canvasContext: context,
+          //     viewport: viewport
+          //   };
+          //   // page.render(renderContext);
+          // });
         });
-
-        // var numPages = pdf.numPages;
-
-        // var lastPromise; // will be used to chain promises
-        // lastPromise = pdf.getMetadata().then(function (data) {
-        //   console.log('# Metadata Is Loaded');
-        //   console.log('## Info');
-        //   console.log(JSON.stringify(data.info, null, 2));
-        //   console.log();
-        //   if (data.metadata) {
-        //     console.log('## Metadata');
-        //     console.log(JSON.stringify(data.metadata.getAll(), null, 2));
-        //     console.log();
-        //   }
-        // });
-
-        // var loadPage = function (pageNum) {
-        //   return pdf.getPage(pageNum).then(function (page) {
-        //     console.log('# Page ' + pageNum);
-        //     var viewport = page.getViewport(1.0 /* scale */);
-        //     console.log('Size: ' + viewport.width + 'x' + viewport.height);
-        //     console.log();
-        //     return page.getTextContent().then(function (content) {
-        //       // Content contains lots of information about the text layout and
-        //       // styles, but we need only strings at the moment
-        //       var strings = content.items.map(function (item) {
-        //         return item.str;
-        //       });
-        //       console.log('## Text Content');
-        //       console.log(strings.join(' '));
-        //     }).then(function () {
-        //       console.log();
-        //     });
-        //   })
-        // };
-        // // Loading of the first page will wait on metadata and subsequent loadings
-        // // will wait on the previous pages.
-        // for (var i = 1; i <= numPages; i++) {
-        //   lastPromise = lastPromise.then(loadPage.bind(null, i));
-        // }
-        // return lastPromise;
-      }).then(function (res) {
-        console.log('# End of Document');
-        console.log(res);
-      }, function (err) {
-        console.error('Error: ' + err);
+        console.log(pages);
+        res(Promise.all(pages));
       });
     });
   }
