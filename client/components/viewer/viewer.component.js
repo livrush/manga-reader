@@ -35,8 +35,21 @@ mangaReader.component('viewer', {
       viewer.index = selectedFile.currentPage;
       viewer.filePath = selectedFile.currentFile;
       mangaFactory.getCollection(selectedFile.currentFile)
-        .then(function (blobUrls) {
-          viewer.pages = blobUrls;
+        .then(function (collection) {
+          const collectionItemType = typeof collection[0];
+          switch(collectionItemType) {
+            case 'object':
+              collection[0].render({
+                canvasContext: document.getElementById('pdf-container').getContext('2d'),
+                viewport: collection[0].getViewport(1.5),
+              });
+              break;
+            case 'string':
+              viewer.pages = collection;
+              break;
+          }
+          console.log(typeof collection[0])
+          console.log(collection);
           $scope.$apply();
         });
 
