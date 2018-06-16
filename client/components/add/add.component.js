@@ -3,7 +3,7 @@ mangaReader.component('add', {
   controller: function($scope, mediaFactory, addFactory) {
     const add = this;
     add.path = os.homedir();
-    add.selected = {};
+    add.selected = null;
     add.folders = [];
     add.files = [];
 
