@@ -3,6 +3,7 @@ mangaReader.component('addList', {
     type: '@',
     list: '<',
     click: '<',
+    index: '<',
   },
   controllerAs: 'list',
   templateUrl: './components/add/list/add-list.template.html'
