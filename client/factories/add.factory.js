@@ -9,18 +9,18 @@ mangaReader.factory('addFactory', function () {
     '.rar': true,
   }
 
-  function searchDirectory() {
+  function searchFolder(currentDirectory) {
     return new Promise(function(res, rej) {
-      fs.readdir(rootPath, function(err, result) {
+      fs.readdir(currentDirectory, function(err, result) {
         if (err) return rej(err);
         const filteredResult = result
           .filter(file => file[0] !== '.');
 
         const folders = filteredResult
-          .filter(file => fs.lstatSync(path.join(add.path, file)).isDirectory())
+          .filter(file => fs.lstatSync(path.join(currentDirectory, file)).isDirectory())
 
         const files = filteredResult
-          .filter(file => !fs.lstatSync(path.join(add.path, file)).isDirectory())
+          .filter(file => !fs.lstatSync(path.join(currentDirectory, file)).isDirectory())
           .filter(file => acceptedFileTypes[path.extname(file)]);
 
         res([ folders, files ]);
@@ -29,6 +29,6 @@ mangaReader.factory('addFactory', function () {
   }
 
   return {
-    searchDirectory
+    searchFolder
   };
 })
