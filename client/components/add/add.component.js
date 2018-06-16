@@ -1,6 +1,6 @@
 mangaReader.component('add', {
   controllerAs: 'add',
-  controller: function($scope, mangaFactory) {
+  controller: function($scope, mediaFactory) {
     const add = this;
     add.path = os.homedir();
     add.selected = {};
@@ -26,7 +26,7 @@ mangaReader.component('add', {
 
     add.selectFile = function(file) {
       const filePath = path.join(add.path, file);
-      mangaFactory.getCollection(filePath)
+      mediaFactory.getCollection(filePath)
         .then(function(res) {
           console.log(res);
         })

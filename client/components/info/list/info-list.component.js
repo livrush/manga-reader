@@ -5,10 +5,10 @@ mangaReader.component('infoList', {
     type: '<',
   },
   controllerAs: 'list',
-  controller: function(mangaFactory) {
+  controller: function(mediaFactory) {
     const list = this;
     list.click = function(file) {
-      mangaFactory.setSelectedFile({
+      mediaFactory.setSelectedFile({
         currentPage: 0,
         currentFile: path.join(__dirname, './.manga', list.manga, file),
       });

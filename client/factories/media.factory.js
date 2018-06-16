@@ -1,4 +1,4 @@
-mangaReader.factory('mangaFactory', function () {
+mangaReader.factory('mediaFactory', function () {
   const libraryIndexPath = path.join(__dirname, '/.manga/index.json');
 
   let selectedFile = null;

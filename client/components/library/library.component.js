@@ -1,6 +1,6 @@
 mangaReader.component('library', {
   controllerAs: 'library',
-  controller: function(mangaFactory, $scope) {
+  controller: function(mediaFactory, $scope) {
     const library = this;
 
     library.selected = {};
@@ -10,7 +10,7 @@ mangaReader.component('library', {
     }
 
     library.$onInit = function() {
-      mangaFactory.getIndex()
+      mediaFactory.getIndex()
         .then(function(index) {
           library.manga = index.concat(index).concat(index).concat(index);
           library.selected = index[0];
@@ -19,7 +19,7 @@ mangaReader.component('library', {
     };
 
     library.$onDestroy = function() {
-      mangaFactory.setSelectedManga(library.selected.title);
+      mediaFactory.setSelectedManga(library.selected.title);
     }
   },
   templateUrl: './components/library/library.template.html'

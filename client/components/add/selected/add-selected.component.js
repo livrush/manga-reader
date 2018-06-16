@@ -3,7 +3,7 @@ mangaReader.component('addSelected', {
     manga: '<',
   },
   controllerAs: 'selected',
-  controller: function(mangaFactory) {
+  controller: function(mediaFactory) {
     const selected = this;
   },
   templateUrl: './components/add/selected/add-selected.template.html'

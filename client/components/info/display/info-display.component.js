@@ -1,6 +1,6 @@
 mangaReader.component('infoDisplay', {
   controllerAs: 'display',
-  controller: function(mangaFactory) {
+  controller: function(mediaFactory) {
     const display = this;
   },
   bindings: {

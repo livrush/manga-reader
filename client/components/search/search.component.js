@@ -1,6 +1,6 @@
 mangaReader.component('search', {
   controllerAs: 'search',
-  controller: function($scope, mangaFactory) {
+  controller: function($scope, mediaFactory) {
     const search = this;
 
   },

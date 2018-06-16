@@ -1,6 +1,6 @@
 mangaReader.component('settings', {
   controllerAs: 'settings',
-  controller: function($scope, mangaFactory) {
+  controller: function($scope, mediaFactory) {
     const settings = this;
 
   },

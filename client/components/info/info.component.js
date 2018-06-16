@@ -1,14 +1,14 @@
 mangaReader.component('info', {
   controllerAs: 'info',
-  controller: function($scope, $location, mangaFactory, indexFactory) {
+  controller: function($scope, $location, mediaFactory, indexFactory) {
     const info = this;
     info.clickSaved = function(selectedIndex) {
       console.log(selectedIndex);
-      mangaFactory.setSelectedFile(selectedIndex);
+      mediaFactory.setSelectedFile(selectedIndex);
     };
 
     info.$onInit = function() {
-      const selectedManga = info.selectedManga = mangaFactory.getSelectedManga();
+      const selectedManga = info.selectedManga = mediaFactory.getSelectedManga();
 
       if (!selectedManga) return $location.path('/');
 
@@ -18,7 +18,7 @@ mangaReader.component('info', {
         oneshot: [],
       };
 
-      mangaFactory.getFilesFromPath(path.join(__dirname, './.manga', selectedManga))
+      mediaFactory.getFilesFromPath(path.join(__dirname, './.manga', selectedManga))
       .then(function(files) {
         return files.reduce(function(container, file) {
           const [ prefix, numberWithSuffix ] = file.split('-');

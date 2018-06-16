@@ -2,7 +2,7 @@ mangaReader.component('viewerPdf', {
   bindings: {
   },
   controllerAs: 'viewer',
-  controller: function ($scope, $location, mangaFactory, indexFactory) {
+  controller: function ($scope, $location, mediaFactory, indexFactory) {
     const viewer = this;
 
     viewer.test = (val) => console.log('Working!', val);
@@ -23,7 +23,7 @@ mangaReader.component('viewerPdf', {
     };
 
     viewer.updateIndex = () => {
-      const selectedManga = mangaFactory.getSelectedManga();
+      const selectedManga = mediaFactory.getSelectedManga();
       indexFactory.updateSelectedIndex(selectedManga, {
         currentPage: viewer.index,
         currentFile: viewer.filePath,
@@ -31,7 +31,7 @@ mangaReader.component('viewerPdf', {
     }
 
     viewer.$onInit = function () {
-      const selectedFile = mangaFactory.getSelectedFile();
+      const selectedFile = mediaFactory.getSelectedFile();
       if (!selectedFile) return $location.path('/');
 
       viewer.index = selectedFile.currentPage;
@@ -39,7 +39,7 @@ mangaReader.component('viewerPdf', {
 
       viewer.fileType = path.extname(viewer.filePath);
 
-      mangaFactory.getCollection(selectedFile.currentFile)
+      mediaFactory.getCollection(selectedFile.currentFile)
         .then(function (collection) {
           const collectionItemType = typeof collection[0];
           switch(collectionItemType) {

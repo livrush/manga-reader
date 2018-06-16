@@ -3,7 +3,7 @@ mangaReader.component('librarySelected', {
     manga: '<',
   },
   controllerAs: 'selected',
-  controller: function(mangaFactory) {
+  controller: function(mediaFactory) {
     const selected = this;
     selected.displayTitle = function(title) {
       return title.replace(/-/g, ' ');

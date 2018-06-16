@@ -1,6 +1,6 @@
 mangaReader.component('libraryManga', {
   controllerAs: 'manga',
-  controller: function(mangaFactory) {
+  controller: function(mediaFactory) {
     const manga = this;
   },
   bindings: {
