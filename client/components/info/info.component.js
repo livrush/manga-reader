@@ -34,7 +34,6 @@ mangaReader.component('info', {
 
       indexFactory.getSelectedIndex(selectedManga)
       .then(function(index) {
-        console.log(index);
         info.selectedIndex = index;
         $scope.$apply();
       })
