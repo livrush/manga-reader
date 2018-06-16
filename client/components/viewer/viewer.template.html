@@ -4,6 +4,8 @@
     <div id="viewer-back" class="viewer-half"  ng-click="viewer.back()"></div>
     <div id="viewer-forward" class="viewer-half"  ng-click="viewer.forward()"></div>
   </div>
-  <img ng-if="viewer.fileType !== '.pdf'" ng-src="{{viewer.pages[viewer.index]}}" alt="Current page">
-  <canvas ng-if="viewer.fileType === '.pdf'" id="pdf-container"></canvas>
+  <div class="viewer-image-container site-width">
+    <img class="viewer-image" ng-if="viewer.fileType !== '.pdf'" ng-src="{{viewer.pages[viewer.index]}}" alt="Current page">
+  </div>
+  <!-- <canvas ng-if="viewer.fileType === '.pdf'" id="pdf-container"></canvas> -->
 </div>
