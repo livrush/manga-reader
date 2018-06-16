@@ -1,6 +1,6 @@
 mangaReader.component('add', {
   controllerAs: 'add',
-  controller: function($scope, mediaFactory, addFactory) {
+  controller: function($scope, mediaFactory, addFactory, indexFactory) {
     const add = this;
     add.path = os.homedir();
     add.confirmed = false;
@@ -8,26 +8,6 @@ mangaReader.component('add', {
     add.folders = [];
     add.files = [];
 
-
-    add.selectFile = function(file, index) {
-      const filePath = path.join(add.path, file);
-      add.index = index;
-      const fileType = path.extname(file);
-      add.selected = {
-        path: file,
-        type: fileType === '.pdf' ? 'pdf' : 'archive',
-      };
-    };
-
-    add.confirmFile = function(file) {
-      const filePath = path.join(add.path, file);
-      add.confirmed = true;
-      const fileType = path.extname(file);
-      mediaFactory.getCollection(filePath)
-        .then(function(res) {
-          console.log(res);
-        })
-    };
 
     add.popFolder = function() {
       add.path = path.dirname(add.path);
@@ -52,9 +32,44 @@ mangaReader.component('add', {
         });
     };
 
+    add.selectFile = function(file, index) {
+      const filePath = path.join(add.path, file);
+      add.index = index;
+      const fileType = path.extname(file);
+      add.selected = {
+        path: file,
+        type: fileType === '.pdf' ? 'pdf' : 'archive',
+      };
+    };
+
+    add.confirmFile = function(file) {
+      const filePath = path.join(add.path, file);
+      add.confirmed = true;
+      const fileType = path.extname(file);
+      indexFactory.getIndex()
+        .then(function(res) {
+          add.info = {
+            list: res.map(item => item.title).concat('New Series'),
+            type: 'book',
+            title: 'Series',
+          };
+          $scope.$apply();
+        });
+      mediaFactory.getCollection(filePath)
+        .then(function(res) {
+          add.selected.files = res;
+        });
+    };
+
+    add.selectInfo = function(value, index, type) {
+      console.log(type, value);
+      add.selected[type] = value;
+    }
+
     add.$onInit = function() {
       add.searchFolder();
     };
+
   },
   templateUrl: './components/add/add.template.html'
 });
