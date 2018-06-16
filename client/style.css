@@ -127,6 +127,14 @@ manga:hover {
   font-weight: bold;
 }
 
+.selected-file-icon  {
+  border-radius: 100%;
+  font-size: 175px;
+  padding: 12.5px;
+  height: 200px;
+  text-align: center;
+  width: 200px;
+}
 
 .viewer {
   align-items: center;
