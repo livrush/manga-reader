@@ -52,7 +52,6 @@ mangaReader.factory('mangaFactory', function () {
             })
             .filter(file => !file.name.includes('__MACOSX'))
             .value();
-            // .sortBy(file => file.name)
             // .filter(file => !console.log(file.name));
           onlyFiles = onlyFiles
             .sort(cmpStringsWithNumbers)
@@ -63,7 +62,6 @@ mangaReader.factory('mangaFactory', function () {
                 return urlCreator.createObjectURL(blob);
               });
             })
-          // debugger;
           const pAll = Promise.all(onlyFiles);
           res(pAll);
         });
@@ -74,33 +72,10 @@ mangaReader.factory('mangaFactory', function () {
   const handlePdfFile = function (filePath) {
     return new Promise(function (res, rej) {
       pdfjsLib.getDocument(filePath).then(function (pdf) {
-        console.log('# Document Loaded');
-
         const pages = Array.from(Array(pdf.numPages)).map(function(e, i) {
-
           const pageNum = i + 1;
-
           return pdf.getPage(pageNum)
-          // .then(function (page) {
-          //   console.log('page', pageNum, page);
-          //   var scale = 1.5;
-          //   var viewport = page.getViewport(scale);
-
-          //   // Prepare canvas using PDF page dimensions.
-          //   var canvas = document.getElementById('pdf-container');
-          //   var context = canvas.getContext('2d');
-          //   canvas.height = viewport.height;
-          //   canvas.width = viewport.width;
-
-          //   // Render PDF page into canvas context.
-          //   var renderContext = {
-          //     canvasContext: context,
-          //     viewport: viewport
-          //   };
-          //   // page.render(renderContext);
-          // });
         });
-        console.log(pages);
         res(Promise.all(pages));
       });
     });
