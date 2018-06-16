@@ -18,5 +18,14 @@
         <i class="fas fa-check"></i>
       </span>
     </li>
+    <li class="list-group-item" ng-if="selected.media.series">
+      Series: {{selected.media.series}}
+    </li>
+    <li class="list-group-item" ng-if="selected.media.mediaType">
+      Type: {{selected.media.mediaType}}
+    </li>
+    <li class="list-group-item" ng-if="selected.media.number">
+      {{selected.media.mediaType}} #{{selected.media.number}}
+    </li>
   </ul>
 </div>
