@@ -73,14 +73,40 @@ mangaReader.factory('mangaFactory', function () {
 
   const handlePdfFile = function (filePath) {
     return new Promise(function (res, rej) {
-      pdfjsLib.getDocument(filePath).then(function (doc) {
-        var numPages = doc.numPages;
+      pdfjsLib.getDocument(filePath).then(function (pdf) {
         console.log('# Document Loaded');
-        console.log('Number of Pages: ' + numPages);
-        console.log();
+
+        const pages = [];
+
+        Array.from(Array(pdf.numPages)).forEach(function(e, i) {
+
+          const pageNum = i + 1;
+
+          pdf.getPage(pageNum).then(function (page) {
+            console.log('page', pageNum, page);
+            var scale = 1.5;
+            var viewport = page.getViewport(scale);
+
+            // Prepare canvas using PDF page dimensions.
+            var canvas = document.getElementById('pdf-container');
+            var context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+
+            // Render PDF page into canvas context.
+            var renderContext = {
+              canvasContext: context,
+              viewport: viewport
+            };
+            page.render(renderContext);
+          });
+
+        });
+
+        // var numPages = pdf.numPages;
 
         // var lastPromise; // will be used to chain promises
-        // lastPromise = doc.getMetadata().then(function (data) {
+        // lastPromise = pdf.getMetadata().then(function (data) {
         //   console.log('# Metadata Is Loaded');
         //   console.log('## Info');
         //   console.log(JSON.stringify(data.info, null, 2));
@@ -93,7 +119,7 @@ mangaReader.factory('mangaFactory', function () {
         // });
 
         // var loadPage = function (pageNum) {
-        //   return doc.getPage(pageNum).then(function (page) {
+        //   return pdf.getPage(pageNum).then(function (page) {
         //     console.log('# Page ' + pageNum);
         //     var viewport = page.getViewport(1.0 /* scale */);
         //     console.log('Size: ' + viewport.width + 'x' + viewport.height);
@@ -117,8 +143,9 @@ mangaReader.factory('mangaFactory', function () {
         //   lastPromise = lastPromise.then(loadPage.bind(null, i));
         // }
         // return lastPromise;
-      }).then(function () {
+      }).then(function (res) {
         console.log('# End of Document');
+        console.log(res);
       }, function (err) {
         console.error('Error: ' + err);
       });
