@@ -86,10 +86,9 @@ manga:hover {
   opacity: 0.5;
 }
 
-.selected {
+.sidebar {
   height: 100vh;
   overflow: hidden;
-  position: fixed;
   width: 240px;
 }
 
