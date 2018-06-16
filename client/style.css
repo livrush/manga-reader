@@ -52,6 +52,10 @@ li {
   justify-content: space-between;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 .title {
   text-shadow: 0px 0px 30px #777;
 }
