@@ -3,15 +3,17 @@ mangaReader.component('add', {
   controller: function($scope, mediaFactory, addFactory) {
     const add = this;
     add.path = os.homedir();
-    add.selected = null;
+    add.selected = false;
+    add.selectedFile = null;
     add.folders = [];
     add.files = [];
+
 
     add.selectFile = function(file, index) {
       const filePath = path.join(add.path, file);
       add.index = index;
       const fileType = path.extname(file);
-      add.selected = {
+      add.selectedFile = {
         path: file,
         type: fileType === '.pdf' ? 'pdf' : 'archive',
       };
@@ -24,11 +26,13 @@ mangaReader.component('add', {
 
     add.popFolder = function() {
       add.path = path.dirname(add.path);
+      add.selectedFile = null;
+      add.index = null;
       add.searchFolder();
     };
 
     add.appendFolder = function(file) {
-      console.warn(file);
+      add.selectedFile = null;
       add.index = null;
       add.path = path.join(add.path, file);
       add.searchFolder();
