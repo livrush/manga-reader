@@ -51,7 +51,7 @@ mangaReader.component('add', {
           add.info = {
             list: res.map(item => item.title).concat('New Series'),
             type: 'book',
-            title: 'Series',
+            title: 'series',
           };
           $scope.$apply();
         });
@@ -64,7 +64,7 @@ mangaReader.component('add', {
     add.selectInfo = function(value, index, type) {
       console.log(type, value);
       add.selected[type] = value;
-    }
+    };
 
     add.$onInit = function() {
       add.searchFolder();
