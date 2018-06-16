@@ -17,7 +17,12 @@ mangaReader.component('add', {
         path: file,
         type: fileType === '.pdf' ? 'pdf' : 'archive',
       };
+    };
 
+    add.confirmFile = function(file) {
+      const filePath = path.join(add.path, file);
+      add.selected = true;
+      const fileType = path.extname(file);
       mediaFactory.getCollection(filePath)
         .then(function(res) {
           console.log(res);

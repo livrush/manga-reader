@@ -1,6 +1,7 @@
 mangaReader.component('addSelected', {
   bindings: {
     media: '<',
+    confirm: '<',
   },
   controllerAs: 'selected',
   controller: function(mediaFactory) {

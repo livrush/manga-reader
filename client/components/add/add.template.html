@@ -1,8 +1,8 @@
 <div class="add-manga flex flex-column">
-  <h2 class="title pt-3">Add Manga</h2>
+  <h2 class="title mt-3 ml-3">Add Manga</h2>
   <div class="flex flex-row">
 
-    <div class="add-file-reader container">
+    <div class="add-file-reader site-width pl-3" ng-if="!add.selected">
 
       <div class="add-header">
         <div class="input-group form-group">
@@ -19,16 +19,16 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-6 col-xs-12">
+      <div class="d-flex">
+        <div class="mr-2 w-50">
           <add-list click="add.appendFolder" type="folder" list="add.folders"></add-list>
         </div>
-        <div class="col-6 col-xs-12">
+        <div class="ml-2 w-50">
           <add-list click="add.selectFile" type="file" list="add.files" index="add.index"></add-list>
         </div>
       </div>
     </div>
 
-    <add-selected media="add.selectedFile"></add-selected>
+    <add-selected media="add.selectedFile" confirm="add.confirmFile"></add-selected>
   </div>
 </div>
