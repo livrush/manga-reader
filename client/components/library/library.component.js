@@ -1,6 +1,6 @@
 mangaReader.component('library', {
   controllerAs: 'library',
-  controller: function(mediaFactory, $scope) {
+  controller: function(indexFactory, mediaFactory, $scope) {
     const library = this;
 
     library.selected = {};
@@ -10,7 +10,7 @@ mangaReader.component('library', {
     }
 
     library.$onInit = function() {
-      mediaFactory.getIndex()
+      indexFactory.getIndex()
         .then(function(index) {
           library.manga = index.concat(index).concat(index).concat(index);
           library.selected = index[0];
