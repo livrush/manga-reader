@@ -7,25 +7,15 @@ mangaReader.component('add', {
     add.folders = [];
     add.files = [];
 
-    // add.selectFile = function(file) {
-    //   const filePath = path.join(add.path, file);
-    //   fs.readFile(filePath, function(err, data) {
-    //     if (err) throw err;
-    //     JSZip.loadAsync(data).then(function ({ files }) {
-    //       const onlyFiles = lodash.filter(files, file => !file.dir);
-    //       const file = onlyFiles[10];
-    //       file.async('blob').then(function(res) {
-    //         var urlCreator = window.URL || window.webkitURL;
-    //         var imageUrl = urlCreator.createObjectURL( res );
-    //         var img = document.querySelector( "#photo" );
-    //         img.src = imageUrl;
-    //       });
-    //     });
-    //   });
-    // };
-
-    add.selectFile = function(file) {
+    add.selectFile = function(file, index) {
       const filePath = path.join(add.path, file);
+      add.index = index;
+      const fileType = path.extname(file);
+      add.selected = {
+        path: file,
+        type: fileType === '.pdf' ? 'pdf' : 'archive',
+      };
+
       mediaFactory.getCollection(filePath)
         .then(function(res) {
           console.log(res);
@@ -39,6 +29,7 @@ mangaReader.component('add', {
 
     add.appendFolder = function(file) {
       console.warn(file);
+      add.index = null;
       add.path = path.join(add.path, file);
       add.searchFolder();
     };
@@ -52,7 +43,9 @@ mangaReader.component('add', {
         });
     };
 
-    add.searchFolder();
+    add.$onInit = function() {
+      add.searchFolder();
+    };
   },
   templateUrl: './components/add/add.template.html'
 });
