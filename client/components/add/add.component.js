@@ -1,6 +1,6 @@
 mangaReader.component('add', {
   controllerAs: 'add',
-  controller: function($scope, mediaFactory) {
+  controller: function($scope, mediaFactory, addFactory) {
     const add = this;
     add.path = os.homedir();
     add.selected = {};
@@ -44,20 +44,12 @@ mangaReader.component('add', {
     };
 
     add.searchFolder = function() {
-      add.files = [];
-      add.folders = [];
-      fs.readdir(add.path, function(err, files) {
-        if (err) return console.error(err);
-        files
-          .filter(file => fs.lstatSync(path.join(add.path, file)).isDirectory())
-          .filter(file => file[0] !== '.')
-          .forEach(file => add.folders.push(file));
-        files
-          .filter(file => !fs.lstatSync(path.join(add.path, file)).isDirectory())
-          .filter(file => file[0] !== '.')
-          .forEach(file => add.files.push(file));
-        $scope.$apply();
-      });
+      addFactory.searchFolder(add.path)
+        .then(function([ folders, files ]) {
+          add.folders = folders;
+          add.files = files;
+          $scope.$apply();
+        });
     };
 
     add.searchFolder();
