@@ -5,7 +5,9 @@ mangaReader.factory('indexFactory', function () {
   const getIndex = function () {
     return new Promise(function (res, rej) {
       fs.readFile(libraryIndexPath, 'utf8', function (err, indexContents) {
-        res(JSON.parse(indexContents));
+        const index = JSON.parse(indexContents);
+        const sortedIndex = lodash.sortBy(index, 'title');
+        res(sortedIndex);
       });
     });
   };
