@@ -8,7 +8,7 @@ mangaReader.component('viewer', {
     viewer.test = (val) => console.log('Working!', val);
 
     viewer.pages = [ './assets/placeholder.png' ];
-    viewer.pdfPages = null;
+
     viewer.index = 0;
     viewer.back = () => {
       if (viewer.index > 0) viewer.index--;
@@ -18,7 +18,6 @@ mangaReader.component('viewer', {
     viewer.forward = () => {
       if (viewer.index < viewer.pages.length - 1) viewer.index++;
       if (viewer.index === viewer.pages.length - 1) { console.log('end'); }
-      displayPdfPage(viewer.pdfPages, viewer.index);
       viewer.updateIndex();
     };
 
@@ -41,18 +40,7 @@ mangaReader.component('viewer', {
 
       mangaFactory.getCollection(selectedFile.currentFile)
         .then(function (collection) {
-          const collectionItemType = typeof collection[0];
-          switch(collectionItemType) {
-            case 'object':
-              viewer.pages = collection;
-              displayPdfPage(collection, 0);
-              break;
-            case 'string':
-              viewer.pages = collection;
-              break;
-          }
-          console.log(typeof collection[0])
-          console.log(collection);
+          viewer.pages = collection;
           $scope.$apply();
         });
 
@@ -77,26 +65,6 @@ mangaReader.component('viewer', {
       };
     }
 
-    function displayPdfPage(pages, index) {
-      const page = pages[index];
-      console.log(pages.length, index, page);
-      var scale = 1.5;
-      var viewport = page.getViewport(scale);
-
-      // Prepare canvas using PDF page dimensions.
-      var canvas = document.getElementById('pdf-container');
-      var context = canvas.getContext('2d');
-      canvas.height = viewport.height;
-      canvas.width = viewport.width;
-
-      // Render PDF page into canvas context.
-      var renderContext = {
-        canvasContext: context,
-        viewport: viewport
-      };
-
-      page.render(renderContext);
-    }
   },
   templateUrl: './components/viewer/viewer.template.html'
 });
