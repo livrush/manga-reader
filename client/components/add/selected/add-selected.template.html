@@ -1,4 +1,10 @@
 <div id="selected" class="selected">
-  <img id="photo" src="" alt="" class="selected-manga">
-  <div class="selected-text">Hey</div>
+  <ul class="list-group" ng-if="selected.media">
+    <li class="list-group-item">
+      <i class="selected-file-icon fas fa-file-{{selected.media.type}}"></i>
+    </li>
+    <li class="list-group-item list-group-item-primary">
+      {{selected.media.path}}
+    </li>
+  </ul>
 </div>
