@@ -4,7 +4,7 @@
     <li class="list-group-item list-group-item-dark">Add a series title</li>
     <li class="list-group-item flex align-items-center">
       <i class="fas fa-font mr-3"></i>
-      <input class="form-control p-0 border-0" type="text" placeholder="Enter title here...">
+      <input class="form-control p-0 border-0" ng-change="info.click(info.name, null, 'series')" ng-model="info.name" type="text" placeholder="Enter title here...">
     </li>
   </ul>
   <add-list classes="pb-3" click="info.click" type="'cubes'" title="'category'" list="info.types"></add-list>
