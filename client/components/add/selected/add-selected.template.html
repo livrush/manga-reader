@@ -7,7 +7,7 @@
       {{selected.media.path}}
     </li>
     <li
-      class="list-group-item list-group-item-info bg-info text-white d-flex justify-content-between pointer" 
+      class="list-group-item list-group-item-info bg-info text-white d-flex justify-content-between pointer"
       ng-click="selected.confirm(selected.media.path)"
       ng-if="!selected.confirmed"
     >
@@ -21,8 +21,8 @@
     <li class="list-group-item" ng-if="selected.media.series">
       Series: {{selected.media.series}}
     </li>
-    <li class="list-group-item" ng-if="selected.media.mediaType">
-      Type: {{selected.media.mediaType}}
+    <li class="list-group-item" ng-if="selected.media.category">
+      Category: {{selected.media.category}}
     </li>
     <li class="list-group-item" ng-if="selected.media.number">
       {{selected.media.mediaType}} #{{selected.media.number}}

@@ -5,11 +5,12 @@ mangaReader.component('addInfo', {
     confirm: '<',
   },
   controllerAs: 'info',
-  controller: function(mediaFactory) {
+  controller: function(addFactory) {
     const info = this;
     info.$onInit = function() {
       console.log(info.data);
       info.click = info.select;
+      info.types = addFactory.possibleCategories
       // info.click = info.select.bind(null, info.data.type);
     };
   },

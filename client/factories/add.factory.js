@@ -9,6 +9,24 @@ mangaReader.factory('addFactory', function () {
     '.rar': true,
   }
 
+  const possibleCategories = [
+    'volume',
+    'chapter',
+    'oneshot',
+  ];
+
+  // const infoList = Info(null, , '')
+
+  function Info(type, title, action) {
+    return {
+      list,
+      type,
+      title,
+      action,
+      next: null,
+    };
+  }
+
   function searchFolder(currentDirectory) {
     return new Promise(function(res, rej) {
       fs.readdir(currentDirectory, function(err, result) {
@@ -29,6 +47,7 @@ mangaReader.factory('addFactory', function () {
   }
 
   return {
-    searchFolder
+    searchFolder,
+    possibleCategories,
   };
 })

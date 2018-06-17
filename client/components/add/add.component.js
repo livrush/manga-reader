@@ -7,6 +7,19 @@ mangaReader.component('add', {
     add.selected = null;
     add.folders = [];
     add.files = [];
+    add.index = 0;
+
+    add.possibleStates = [
+      'series',
+      'category',
+      'number',
+      'author',
+      // 'genres', // TODO
+    ];
+
+    add.types = addFactory.possibleCategories
+
+    // add.info = Info();
 
 
     add.popFolder = function() {
@@ -69,6 +82,14 @@ mangaReader.component('add', {
     add.$onInit = function() {
       add.searchFolder();
     };
+
+    function Info(list, type, title) {
+      return {
+        list,
+        type,
+        title,
+      };
+    }
 
   },
   templateUrl: './components/add/add.template.html'
