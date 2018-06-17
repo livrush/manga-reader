@@ -25,6 +25,7 @@
   "dependencies": {
     "@uirouter/angularjs": "^1.0.18",
     "angular": "^1.7.1",
+    "change-case": "^3.0.2",
     "jszip": "^3.1.5",
     "lodash": "^4.17.10",
     "node-unrar-js": "^0.8.1",

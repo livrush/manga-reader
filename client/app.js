@@ -1,8 +1,9 @@
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const lodash = require('lodash');
 const JSZip = require('jszip');
+const lodash = require('lodash');
+const changeCase = require('change-case');
 
 const mangaReader = angular.module('manga-reader', ['ui.router']);
 
