@@ -14,7 +14,7 @@ mangaReader.component('addInfo', {
       info.click = info.select;
       info.types = addFactory.possibleCategories
       // info.click = info.select.bind(null, info.data.type);
-
+      info.number = 1;
       info.confirmAndAdd = function(selectedDetails) {
         libraryFactory.add(selectedDetails);
       }
