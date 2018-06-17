@@ -12,7 +12,7 @@
     <li class="list-group-item list-group-item-dark">Number</li>
     <li class="list-group-item flex align-items-center">
       <i class="fas fa-hashtag mr-3"></i>
-      <input class="form-control p-0 border-0" type="number" placeholder="Enter title here...">
+      <input class="form-control p-0 border-0" ng-change="info.click(info.number, null, 'number')" ng-model="info.number" type="number" placeholder="Enter {{ info.selected.category }} number here...">
     </li>
   </ul>
   <ul class="list-group pb-3">
