@@ -12,10 +12,33 @@ mangaReader.factory('indexFactory', function () {
     });
   };
 
+  const saveIndex = function (indexObject) {
+    return new Promise(function (res, rej) {
+      fs.writeFile(libraryIndexPath, JSON.stringify(indexObject), function (err) {
+        rej(err);
+        res(indexObject);
+      });
+    });
+  };
+
+  const sanitizeIndex = function() {
+    getIndex()
+    .then(function(index) {
+      const sanitizedIndex = index.map(function(title) {
+        for (const key in title) {
+          if (typeof object[key] === 'string') {
+            object[key] = object[key].toLowerCase();
+          }
+        }
+        return sanitizedIndex;
+      });
+    })
+    .then(saveIndex)
+  }
 
   const updateIndex = function (mediaName, updatedInfo) {
     getIndex().then(index => {
-
+      debugger;
     });
   };
 
@@ -52,5 +75,6 @@ mangaReader.factory('indexFactory', function () {
     updateIndex,
     getSelectedIndex,
     updateSelectedIndex,
+    sanitizeIndex,
   };
 })
