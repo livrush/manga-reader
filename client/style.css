@@ -91,6 +91,7 @@ manga:hover {
   height: 100vh;
   overflow: hidden;
   width: 240px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .selected-manga {
