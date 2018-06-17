@@ -1,6 +1,7 @@
 mangaReader.component('addInfo', {
   bindings: {
     data: '<',
+    images: '<',
     select: '<',
     confirm: '<',
   },
@@ -8,7 +9,7 @@ mangaReader.component('addInfo', {
   controller: function(addFactory) {
     const info = this;
     info.$onInit = function() {
-      console.log(info.data);
+      console.log(info);
       info.click = info.select;
       info.types = addFactory.possibleCategories
       // info.click = info.select.bind(null, info.data.type);

@@ -131,6 +131,20 @@ manga:hover {
   font-weight: bold;
 }
 
+.thumbnail-container {
+  height: 15vmin;
+  width: 15vmin;
+  position: relative;
+}
+
+.thumbnail {
+  border: #212529 1px solid;
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+}
+
 .selected-file-icon  {
   border-radius: 100%;
   font-size: 175px;

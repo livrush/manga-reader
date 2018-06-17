@@ -17,7 +17,6 @@ mangaReader.component('add', {
       // 'genres', // TODO
     ];
 
-    add.types = addFactory.possibleCategories
 
     // add.info = Info();
 
@@ -70,7 +69,8 @@ mangaReader.component('add', {
         });
       mediaFactory.getCollection(filePath)
         .then(function(res) {
-          add.selected.files = res;
+          add.images = res;
+          $scope.$apply();
         });
     };
 
