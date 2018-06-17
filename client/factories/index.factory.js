@@ -36,6 +36,8 @@ mangaReader.factory('indexFactory', function () {
       const sanitizedIndex = lodash
         .chain(index)
         .filter(title => !Array.isArray(title))
+        .filter(title => title !== null)
+        .filter(title => typeof title === 'object')
         .map(function(title) {
           for (const key in title) {
             if (typeof title[key] === 'string') {
