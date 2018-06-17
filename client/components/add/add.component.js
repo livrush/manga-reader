@@ -1,6 +1,6 @@
 mangaReader.component('add', {
   controllerAs: 'add',
-  controller: function($scope, mediaFactory, addFactory, indexFactory) {
+  controller: function($scope, mediaFactory, addFactory, indexFactory, libraryFactory) {
     const add = this;
     add.path = os.homedir();
     add.confirmed = false;
@@ -49,7 +49,8 @@ mangaReader.component('add', {
       add.index = index;
       const fileType = path.extname(file);
       add.selected = {
-        path: file,
+        fileName: file,
+        filePath,
         type: fileType === '.pdf' ? 'pdf' : 'archive',
       };
     };
@@ -77,6 +78,10 @@ mangaReader.component('add', {
     add.selectInfo = function(value, index, type) {
       console.log(type, value);
       add.selected[type] = value;
+    };
+
+    add.addToLibrary = function(selected) {
+      libraryFactory.add(selected);
     };
 
     add.$onInit = function() {
