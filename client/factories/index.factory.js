@@ -24,16 +24,34 @@ mangaReader.factory('indexFactory', function () {
   const sanitizeIndex = function() {
     getIndex()
     .then(function(index) {
-      const sanitizedIndex = index.map(function(title) {
-        for (const key in title) {
-          if (typeof object[key] === 'string') {
-            object[key] = object[key].toLowerCase();
+      const totalSeries = fs.readdirSync(libraryPath)
+        .filter(file => fs.lstatSync(path.join(libraryPath, file)).isDirectory());
+      const seriesInIndex = lodash.map(index, 'title');
+      console.log(totalSeries, seriesInIndex);
+      const newSeries = lodash.difference(totalSeries, seriesInIndex)
+      console.log(newSeries);
+
+      index.push(...newSeries.map(createIndexEntry));
+
+      const sanitizedIndex = lodash
+        .chain(index)
+        .filter(title => !Array.isArray(title))
+        .map(function(title) {
+          for (const key in title) {
+            if (typeof title[key] === 'string') {
+              title[key] = title[key].toLowerCase();
+            }
           }
-        }
-        return sanitizedIndex;
-      });
+          return title;
+        })
+        .sortBy('title')
+        .value();
+
+      console.log(sanitizedIndex);
+      return sanitizedIndex;
     })
     .then(saveIndex)
+    .then(console.log)
   }
 
   const updateIndex = function (mediaName, updatedInfo) {
@@ -69,6 +87,9 @@ mangaReader.factory('indexFactory', function () {
     });
   };
 
+  function createIndexEntry(title) {
+    return { title };
+  }
 
   return {
     getIndex,
