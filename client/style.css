@@ -44,6 +44,10 @@ li {
   width: calc(100vw - 50px);
 }
 
+.vh-100 {
+  height: 100vh;
+}
+
 .flex {
   display: flex;
 }
@@ -58,15 +62,22 @@ li {
 
 .title {
   text-shadow: 0px 0px 30px #777;
+  height: 50px;
 }
 
-.add-file-reader,
 .library-manga-list,
+.add-file-reader,
 .add-info {
   align-content: flex-start;
   height: 100vh;
   overflow: auto;
   width: calc(100vw - 290px);
+}
+
+.add-file-reader,
+.add-info {
+  height: calc(100vh - 50px);
+  padding-bottom: 2rem;
 }
 
 manga:hover {
@@ -136,13 +147,19 @@ manga:hover {
 }
 
 .thumbnail-container {
-  height: 15vmin;
-  width: 15vmin;
+  min-height: 15vmin;
+  min-width: 15vmin;
+  max-width: 15vmin;
   position: relative;
+  border: #c6c8ca 2px solid;
+  border-radius: 5px;
+  background: #c6c8ca;
+  overflow: hidden;
 }
 
-.thumbnail {
-  border: #212529 1px solid;
+.thumbnail:hover {
+  opacity: 0.5;
+  /* border: #212529 1px solid; */
   /* position: absolute;
   top: 50%;
   left: 50%;
