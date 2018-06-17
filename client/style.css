@@ -61,7 +61,8 @@ li {
 }
 
 .add-file-reader,
-.library-manga-list {
+.library-manga-list,
+.add-info {
   align-content: flex-start;
   height: 100vh;
   overflow: auto;
