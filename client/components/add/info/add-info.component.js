@@ -7,16 +7,22 @@ mangaReader.component('addInfo', {
     selected: '<',
   },
   controllerAs: 'info',
-  controller: function(addFactory, libraryFactory) {
+  controller: function(addFactory, indexFactory, libraryFactory) {
     const info = this;
     info.$onInit = function() {
       console.log(info);
       info.click = info.select;
       info.types = addFactory.possibleCategories
-      // info.click = info.select.bind(null, info.data.type);
+
+      info.name = '';
       info.number = 1;
+
       info.confirmAndAdd = function(selectedDetails) {
-        libraryFactory.add(selectedDetails);
+        libraryFactory.add(selectedDetails)
+        .then(function() {
+            const seriesName = changeCase.paramCase(selectedDetails.series);
+            indexFactory.updateIndex(seriesName, selectedDetails);
+          });
       }
     };
   },
