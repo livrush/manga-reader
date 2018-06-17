@@ -7,6 +7,7 @@ mangaReader.component('addSelected', {
   controllerAs: 'selected',
   controller: function(mediaFactory) {
     const selected = this;
+    selected.title = changeCase.titleCase;
   },
   templateUrl: './components/add/selected/add-selected.template.html'
 });

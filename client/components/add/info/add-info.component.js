@@ -4,15 +4,20 @@ mangaReader.component('addInfo', {
     images: '<',
     select: '<',
     confirm: '<',
+    selected: '<',
   },
   controllerAs: 'info',
-  controller: function(addFactory) {
+  controller: function(addFactory, libraryFactory) {
     const info = this;
     info.$onInit = function() {
       console.log(info);
       info.click = info.select;
       info.types = addFactory.possibleCategories
       // info.click = info.select.bind(null, info.data.type);
+
+      info.confirmAndAdd = function(selectedDetails) {
+        libraryFactory.add(selectedDetails);
+      }
     };
   },
   templateUrl: './components/add/info/add-info.template.html'

@@ -4,11 +4,11 @@
       <i class="selected-file-icon fas fa-file-{{selected.media.type}}"></i>
     </li>
     <li class="list-group-item list-group-item-info">
-      {{selected.media.path}}
+      {{selected.media.filePath}}
     </li>
     <li
       class="list-group-item list-group-item-info bg-info text-white d-flex justify-content-between pointer"
-      ng-click="selected.confirm(selected.media.path)"
+      ng-click="selected.confirm(selected.media.fileName)"
       ng-if="!selected.confirmed"
     >
       <span>

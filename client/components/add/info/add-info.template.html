@@ -1,28 +1,29 @@
 <div id="add-info" class="add-info site-width pr-3">
-  <add-list classes="mb-3" click="info.click" type="info.data.type" title="info.data.title" list="info.data.list"></add-list>
-  <ul class="list-group mb-3">
+  <add-list classes="pb-3" click="info.click" type="info.data.type" title="info.data.title" list="info.data.list"></add-list>
+  <ul class="list-group pb-3">
     <li class="list-group-item list-group-item-dark">Add a series title</li>
     <li class="list-group-item flex align-items-center">
       <i class="fas fa-font mr-3"></i>
       <input class="form-control p-0 border-0" type="text" placeholder="Enter title here...">
     </li>
   </ul>
-  <add-list classes="mb-3" click="info.click" type="'cubes'" title="'category'" list="info.types"></add-list>
-  <ul class="list-group mb-3">
+  <add-list classes="pb-3" click="info.click" type="'cubes'" title="'category'" list="info.types"></add-list>
+  <ul class="list-group pb-3">
     <li class="list-group-item list-group-item-dark">Number</li>
     <li class="list-group-item flex align-items-center">
       <i class="fas fa-hashtag mr-3"></i>
       <input class="form-control p-0 border-0" type="number" placeholder="Enter title here...">
     </li>
   </ul>
-  <ul class="list-group mb-3">
+  <ul class="list-group pb-3">
     <li class="list-group-item list-group-item-dark">Select a display image</li>
     <li class="list-group-item flex align-items-center">
       <ul class="flex flex-wrap">
-        <li ng-repeat="image in info.images track by $index" class="thumbnail-container flex justify-content-center align-items-center m-1">
+        <li ng-repeat="image in info.images track by $index" class="pointer thumbnail-container flex justify-content-center align-items-center m-1">
           <img class="thumbnail viewer-image" ng-src="{{image}}" alt="">
         </li>
       </ul>
     </li>
   </ul>
+  <button  ng-click="info.confirmAndAdd(info.selected)" class="btn btn-info w-100">Confirm and Add to Library</button>
 </div>

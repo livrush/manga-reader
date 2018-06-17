@@ -3,6 +3,6 @@
     Select a {{list.title}}
   </li>
   <li class="pointer list-group-item list-group-item-action add-list-{{list.type}}" ng-class="{'list-group-item-info' : $index === list.index}" ng-repeat="name in list.list track by $index" ng-click="list.click(name, $index, list.title)">
-    <i class="fas fa-{{list.type}} mr-3"></i> {{name}}
+    <i class="fas fa-{{list.type}} mr-3"></i> {{ list.titleCase(name) }}
   </li>
 </ul>

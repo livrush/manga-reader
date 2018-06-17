@@ -9,7 +9,8 @@ mangaReader.component('addList', {
   },
   controllerAs: 'list',
   controller: function() {
-    console.log(this);
+    const list = this;
+    list.titleCase = changeCase.titleCase;
   },
   templateUrl: './components/add/list/add-list.template.html'
 });
