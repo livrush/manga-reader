@@ -11,9 +11,10 @@
         <li>Genre</li>
       </ul>
     </div>
+    <button ng-if="!display.editing" class="btn btn-warning" ng-click="display.editingStart()">Edit</button>
   </div>
 
-  <div ng-if="display.editing">
+  <form ng-if="display.editing" ng-submit="display.editingStop()">
     <img class="selected-manga" ng-src="{{display.imageUrl}}" alt="">
     <div class="info p-2">
       <input type="text" class="form-control" ng-model="display.data.title">
@@ -25,10 +26,9 @@
         <li>Genre</li>
       </ul>
     </div>
-  </div>
+    <button ng-if="display.editing" class="btn btn-warning" ng-click="display.editingStop()">Save</button>
+  </form>
 
 
 
-  <button ng-if="!display.editing" class="btn btn-warning" ng-click="display.editingStart()">Edit</button>
-  <button ng-if="display.editing" class="btn btn-warning" ng-click="display.editingStop()">Save</button>
 </div>
