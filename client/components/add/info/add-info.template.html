@@ -1,5 +1,5 @@
 <div id="add-info" class="add-info site-width pr-3">
-  <add-list classes="pb-3" click="info.click" type="info.data.type" title="info.data.title" list="info.data.list"></add-list>
+  <add-list classes="pb-3" case="title" click="info.click" type="info.data.type" title="info.data.title" list="info.data.list"></add-list>
   <ul class="list-group pb-3">
     <li class="list-group-item list-group-item-dark">Add a series title</li>
     <li class="list-group-item flex align-items-center">
@@ -7,7 +7,7 @@
       <input class="form-control p-0 border-0" ng-change="info.click(info.name, null, 'series')" ng-model="info.name" type="text" placeholder="Enter title here...">
     </li>
   </ul>
-  <add-list classes="pb-3" click="info.click" type="'cubes'" title="'category'" list="info.types"></add-list>
+  <add-list classes="pb-3" case="title" click="info.click" type="'cubes'" title="'category'" list="info.types"></add-list>
   <ul class="list-group pb-3">
     <li class="list-group-item list-group-item-dark">Number</li>
     <li class="list-group-item flex align-items-center">
