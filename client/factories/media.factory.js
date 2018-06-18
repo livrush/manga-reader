@@ -1,4 +1,5 @@
 mangaReader.factory('mediaFactory', function () {
+  const libraryPath = path.join(__dirname, '/.manga');
   const libraryIndexPath = path.join(__dirname, '/.manga/index.json');
 
   let selectedFile = null;
@@ -101,6 +102,12 @@ mangaReader.factory('mediaFactory', function () {
     return getSomeFromPath(filePath, false);
   }
 
+  const getThumbnail = function(title) {
+    const thumbnailPath = path.join(libraryPath, title, '.thumb.jpg');
+    const thumbnailExists = fs.existsSync(thumbnailPath);
+    return thumbnailExists ? thumbnailPath : path.join(__dirname, 'assets/placeholder.png')
+  }
+
   var reParts = /\d+|\D+/g;
   var reDigit = /\d/;
   const cmpStringsWithNumbers = function (a, b) {
@@ -154,5 +161,6 @@ mangaReader.factory('mediaFactory', function () {
     setSelectedFile,
     getFilesFromPath,
     getFoldersFromPath,
+    getThumbnail,
   };
 })
