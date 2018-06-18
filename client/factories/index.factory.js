@@ -5,6 +5,7 @@ mangaReader.factory('indexFactory', function () {
   const getIndex = function () {
     return new Promise(function (res, rej) {
       fs.readFile(libraryIndexPath, 'utf8', function (err, indexContents) {
+        if (err) rej(err);
         const index = JSON.parse(indexContents);
         const sortedIndex = lodash.sortBy(index, 'title');
         res(sortedIndex);
@@ -15,7 +16,7 @@ mangaReader.factory('indexFactory', function () {
   const saveIndex = function (indexObject) {
     return new Promise(function (res, rej) {
       fs.writeFile(libraryIndexPath, JSON.stringify(indexObject), function (err) {
-        rej(err);
+        if (err) rej(err);
         res(indexObject);
       });
     });
@@ -56,19 +57,36 @@ mangaReader.factory('indexFactory', function () {
     .then(console.log)
   }
 
-  const updateIndex = function (mediaName, updatedInfo) {
-    getIndex().then(index => {
-      debugger;
-    });
+  const updateIndexByTitle = function (mediaName, updatedInfo, index) {
+    return getIndex()
+      .then(index => {
+        for (let i = 0; i < index.length; i++) {
+          const media = index[i];
+          if (media.title === mediaName) index[i] = updatedInfo;
+        }
+        console.log(index);
+        return index;
+      })
+      .then(saveIndex);
+  };
+
+  const getIndexByTitle = function (title) {
+    return getIndex().then(function(index) {
+      for (let i = 0; i < index.length; i++) {
+        const media = index[i];
+        if (media.title === title) return media;
+      }
+      return null;
+    })
   };
 
   const getSelectedIndex = function(mediaName) {
     const selectedIndexPath = path.join(libraryPath, mediaName, '.index.json');
     return new Promise(function (res, rej) {
       fs.readFile(selectedIndexPath, 'utf8', function (err, indexContents) {
-        if (indexContents) res(JSON.parse(indexContents));
+        if (err) rej(err);
+        else if (indexContents) res(JSON.parse(indexContents));
         else res(indexContents);
-        rej(err);
       });
     });
   };
@@ -116,9 +134,10 @@ mangaReader.factory('indexFactory', function () {
 
   return {
     getIndex,
-    updateIndex,
     getSelectedIndex,
     updateSelectedIndex,
     sanitizeIndex,
+    getIndexByTitle,
+    updateIndexByTitle,
   };
 })
