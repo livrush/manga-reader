@@ -103,9 +103,10 @@ mangaReader.factory('mediaFactory', function () {
   }
 
   const getThumbnail = function(title) {
+    if (typeof title !== 'string') return path.join(__dirname, 'assets/placeholder.png');
     const thumbnailPath = path.join(libraryPath, title, '.thumb.jpg');
     const thumbnailExists = fs.existsSync(thumbnailPath);
-    return thumbnailExists ? thumbnailPath : path.join(__dirname, 'assets/placeholder.png')
+    return thumbnailExists ? thumbnailPath : path.join(__dirname, 'assets/placeholder.png');
   }
 
   var reParts = /\d+|\D+/g;
