@@ -1,9 +1,10 @@
 <div class="sidebar transparent-white-back">
+
   <div ng-if="!display.editing">
     <img class="selected-manga" ng-src="{{display.imageUrl}}" alt="">
     <div class="info p-2">
-      <h4>{{display.data.title}}</h4>
-      <label for="">{{display.data.author}}</label>
+      <h4 class="title">{{display.data.title}}</h4>
+      <label for="author">{{display.data.author}}</label>
       <ul>
         <li>Genre</li>
         <li>Genre</li>
@@ -11,7 +12,7 @@
         <li>Genre</li>
       </ul>
     </div>
-    <button ng-if="!display.editing" class="btn btn-warning" ng-click="display.editingStart()">Edit</button>
+    <button class="btn btn-warning" ng-click="display.editingStart()">Edit</button>
   </div>
 
   <form ng-if="display.editing" ng-submit="display.editingStop()">
@@ -26,9 +27,7 @@
         <li>Genre</li>
       </ul>
     </div>
-    <button ng-if="display.editing" class="btn btn-warning" ng-click="display.editingStop()">Save</button>
+    <button class="btn btn-warning" ng-click="display.editingStop()">Save</button>
   </form>
-
-
 
 </div>
