@@ -18,12 +18,10 @@ mangaReader.component('infoDisplay', {
 
     display.editingStart = function() {
       display.editing = true;
-      console.log('start', display.data);
     };
 
     display.editingStop = function() {
       display.editing = false;
-      console.log('stop', display.data);
       indexFactory.updateIndexByTitle(display.manga, display.data);
     };
   },

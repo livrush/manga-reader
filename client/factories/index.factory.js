@@ -28,9 +28,7 @@ mangaReader.factory('indexFactory', function () {
       const totalSeries = fs.readdirSync(libraryPath)
         .filter(file => fs.lstatSync(path.join(libraryPath, file)).isDirectory());
       const seriesInIndex = lodash.map(index, 'title');
-      console.log(totalSeries, seriesInIndex);
       const newSeries = lodash.difference(totalSeries, seriesInIndex)
-      console.log(newSeries);
 
       index.push(...newSeries.map(createIndexEntry));
 
@@ -42,7 +40,7 @@ mangaReader.factory('indexFactory', function () {
         .map(function(title) {
           for (const key in title) {
             if (typeof title[key] === 'string') {
-              title[key] = title[key].toLowerCase();
+              title[key] = changeCase.paramCase(title[key]);
             }
           }
           return title;
@@ -50,11 +48,9 @@ mangaReader.factory('indexFactory', function () {
         .sortBy('title')
         .value();
 
-      console.log(sanitizedIndex);
       return sanitizedIndex;
     })
     .then(saveIndex)
-    .then(console.log)
   }
 
   const updateIndexByTitle = function (mediaName, updatedInfo, index) {
