@@ -2,7 +2,7 @@
 
 ![asdf](logo.svg)
 
-Milk Book is a simple solution for comic reading.
+Milk Book is a simple, desktop application for comic reading. Built with Electron and AngularJS.
 
 ---
 
